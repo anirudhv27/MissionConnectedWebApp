@@ -8,9 +8,9 @@ import {
   DropdownButton,
 } from "react-bootstrap";
 import Select from "react-select";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../../contexts/AuthContext";
 import { useHistory } from "react-router-dom";
-import app from "../firebase"
+import app from "../../firebase"
 
 export default function Login() {
   const { signInWithGoogle } = useAuth();

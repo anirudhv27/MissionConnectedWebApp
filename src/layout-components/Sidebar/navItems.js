@@ -44,6 +44,17 @@ export default [
     content: JSON.parse(
       `[
   {
+    "label": "Login",
+    "icon": "DashboardTwoToneIcon",
+    "content": [
+      {
+        "label": "Login",
+        "description": "This is a dashboard page example built using this template.",
+        "to": "/LoginButton"
+      }
+    ]
+  },
+  {
     "label": "Dashboards",
     "icon": "DashboardTwoToneIcon",
     "content": [

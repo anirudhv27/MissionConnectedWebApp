@@ -26,8 +26,10 @@ import RegularTables4 from './example-pages/RegularTables4';
 import FormsControls from './example-pages/FormsControls';
 
 const DashboardDefault = lazy(() => import('./example-pages/DashboardDefault'));
+const LoginButton = lazy(() => import('./example-pages/LoginButton'));
 const Cards3 = lazy(() => import('./example-pages/Cards3'));
 const LandingPage = lazy(() => import('./example-pages/LandingPage'));
+
 const Accordions = lazy(() => import('./example-pages/Accordions'));
 const Modals = lazy(() => import('./example-pages/Modals'));
 const Notifications = lazy(() => import('./example-pages/Notifications'));
@@ -89,6 +91,8 @@ const Routes = () => {
               </PresentationLayout>
             </Route>
 
+            
+
             <Route
               path={[
                 '/DashboardDefault',
@@ -112,7 +116,8 @@ const Routes = () => {
                 '/FormsControls',
                 '/ApexCharts',
                 '/Maps',
-                '/ListGroups'
+                '/ListGroups',
+                '/LoginButton'
               ]}>
               <LeftSidebar>
                 <Switch location={location} key={location.pathname}>
@@ -132,6 +137,7 @@ const Routes = () => {
                       path="/NavigationMenus"
                       component={NavigationMenus}
                     />
+                    <Route path="/LoginButton" component={LoginButton} />
                     <Route path="/ProgressBars" component={ProgressBars} />
                     <Route path="/Pagination" component={Pagination} />
                     <Route path="/Scrollable" component={Scrollable} />

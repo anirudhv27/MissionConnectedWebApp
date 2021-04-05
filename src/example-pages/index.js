@@ -21,3 +21,4 @@ export { default as FormsControls } from './FormsControls';
 export { default as ApexCharts } from './ApexCharts';
 export { default as Maps } from './Maps';
 export { default as ListGroups } from './ListGroups';
+export { default as LoginButton } from './LoginButton';
