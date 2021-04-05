@@ -75,7 +75,7 @@ const Routes = () => {
             </div>
           }>
           <Switch>
-            <Redirect exact from="/" to="/DashboardDefault" />
+            <Redirect exact from="/" to="/LoginButton" />
             <Route path={['/LandingPage']}>
               <PresentationLayout>
                 <Switch location={location} key={location.pathname}>
