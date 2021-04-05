@@ -28,3 +28,6 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information
+
+
+Carolina Docs: https://docs.uifort.com/carolina-react-admin-dashboard-material-ui-free-docs/RoutingNavigation
