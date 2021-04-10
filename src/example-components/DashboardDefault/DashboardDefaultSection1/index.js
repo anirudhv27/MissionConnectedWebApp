@@ -84,89 +84,91 @@ export default function LivePreviewExample() {
     <Fragment>
       <Grid container spacing={4}>
         <Grid item xs={12} sm={6} md={4}>
-          <Card className="card-box border-0 text-light mb-4">
+          <Card className="card-box bg-premium-dark border-0 text-light mb-4">
             <CardContent className="p-3">
               <div className="d-flex align-items-start">
                 <div className="font-weight-bold">
-                  <small className="text-black-50 font-size-sm d-block mb-1 text-uppercase">
-                    MSJ Girls Who Code
+                  <small className="text-white-50 d-block mb-1 text-uppercase">
+                    New Accounts
                   </small>
+                  <span className="font-size-xxl mt-1">586,356</span>
                 </div>
-              </div>
-
-            </CardContent>
-          </Card>
-        </Grid>
-      </Grid>
-      <Grid container spacing={4}>
-        <Grid item xs={12} sm={6} md={4}>
-          <Card className="card-box bg-light-gray border-0 text-light mb-4">
-            <CardContent className="p-3">
-              <div className="d-flex align-items-start">
-                <div className="font-weight-bold">
-
-                  <small className="text-black-50 font-size-sm d-block mb-1 text-uppercase">
-                    MSJ Girls Who Code
-                  </small>
-                  <span className="text-black-50 font-size-lg mt-1">Guest speaker event<br></br></span>
-                  <span className="text-black-50 font-size-sm mt-1"><br></br>February 31, 2021<br></br></span> 
-                  <span className="text-black-50 font-size-sm mt-1">3:30-4:30<br></br></span> 
+                <div className="ml-auto">
+                  <div className="bg-white text-center text-success d-50 rounded-circle d-flex align-items-center justify-content-center">
+                    <FontAwesomeIcon
+                      icon={['far', 'chart-bar']}
+                      className="font-size-xl"
+                    />
+                  </div>
                 </div>
               </div>
               <div className="mt-3">
                 <FontAwesomeIcon
-                  icon={['fas', 'circle']}
+                  icon={['fas', 'arrow-up']}
                   className="text-success mr-1"
                 />
-                <span className="text-black-50">Going</span>
+                <span className="text-success pr-1">15.4%</span>
+                <span className="text-white-50">increase this month</span>
               </div>
             </CardContent>
           </Card>
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
-          <Card className="card-box bg-light-gray border-0 text-light mb-4">
+          <Card className="card-box bg-midnight-bloom text-light mb-4">
             <CardContent className="p-3">
               <div className="d-flex align-items-start">
                 <div className="font-weight-bold">
-
-                  <small className="text-black-50 font-size-sm d-block mb-1 text-uppercase">
-                    MSJ UNICEF
+                  <small className="text-white-50 d-block mb-1 text-uppercase">
+                    Sales
                   </small>
-                  <span className="text-black-50 font-size-lg mt-1">UNICEF food drive<br></br></span>
-                  <span className="text-black-50 font-size-sm mt-1"><br></br>March 13, 2021<br></br></span> 
-                  <span className="text-black-50 font-size-sm mt-1">2:30-5:00<br></br></span> 
+                  <span className="font-size-xxl mt-1">23,274</span>
+                </div>
+                <div className="ml-auto">
+                  <div className="bg-white text-center text-primary d-50 rounded-circle d-flex align-items-center justify-content-center">
+                    <FontAwesomeIcon
+                      icon={['far', 'lightbulb']}
+                      className="font-size-xl"
+                    />
+                  </div>
                 </div>
               </div>
               <div className="mt-3">
                 <FontAwesomeIcon
-                  icon={['fas', 'circle']}
-                  className="text-success mr-1"
+                  icon={['fas', 'arrow-up']}
+                  className="text-warning mr-1"
                 />
-                <span className="text-black-50">Going</span>
+                <span className="text-warning pr-1">7.4%</span>
+                <span className="text-white-50">same as before</span>
               </div>
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <Card className="card-box bg-light-gray border-0 text-light mb-4">
+        <Grid item xs={12} md={4}>
+          <Card className="card-box bg-plum-plate text-light mb-4">
             <CardContent className="p-3">
               <div className="d-flex align-items-start">
                 <div className="font-weight-bold">
-
-                  <small className="text-black-50 font-size-sm d-block mb-1 text-uppercase">
-                    MSJ Biotechnology Club
+                  <small className="text-white-50 d-block mb-1 text-uppercase">
+                    Orders
                   </small>
-                  <span className="text-black-50 font-size-lg mt-1">Weekly meeting<br></br></span>
-                  <span className="text-black-50 font-size-sm mt-1"><br></br>March 2, 2021<br></br></span> 
-                  <span className="text-black-50 font-size-sm mt-1">2:30-5:00<br></br></span> 
+                  <span className="font-size-xxl mt-1">345</span>
+                </div>
+                <div className="ml-auto">
+                  <div className="bg-white text-center text-primary d-50 rounded-circle d-flex align-items-center justify-content-center">
+                    <FontAwesomeIcon
+                      icon={['far', 'chart-bar']}
+                      className="font-size-xl"
+                    />
+                  </div>
                 </div>
               </div>
               <div className="mt-3">
                 <FontAwesomeIcon
-                  icon={['fas', 'circle']}
-                  className="text-success mr-1"
+                  icon={['fas', 'arrow-down']}
+                  className="text-white mr-1"
                 />
-                <span className="text-black-50">Going</span>
+                <span className="text-white px-1">15.4%</span>
+                <span className="text-white-50">less orders</span>
               </div>
             </CardContent>
           </Card>
