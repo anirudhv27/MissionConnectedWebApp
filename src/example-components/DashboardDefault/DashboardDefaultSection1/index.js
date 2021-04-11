@@ -2,10 +2,16 @@ import React, { Fragment } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { Grid, Card, CardContent, Button, Divider } from '@material-ui/core';
+import { Grid, Card, CardContent, Button, Divider, Box, Popover } from '@material-ui/core';
+
+import Menus from '../../Menus';
 
 import Chart from 'react-apexcharts';
+
+
 export default function LivePreviewExample() {
+
+
   const chart30Options = {
     chart: {
       toolbar: {
@@ -79,96 +85,138 @@ export default function LivePreviewExample() {
       data: [47, 38, 56, 24, 45, 54, 38, 47, 38, 56, 24, 56, 24, 65]
     }
   ];
+  // var clubs = ["MSJ Girls Who Code", "Green Club", "UNICEF"];
+  // var events = ["Guest Speaker", "Lecture", "Info Session"];
+  // var time = ["Feb 31", "Tuesday", "Wednesday"];
+  // var date = ["3:00", "3:22", "3:00"]
+  const list = [
+    {
+      club: 'MSJ Girls Who Code',
+      event: 'Guest speaker event',
+      date: 'February 31, 2021',
+      time: '3:30-4:30',
+      status: 'Going',
+    }, 
+    {
+      club: 'MSJ UNICEF',
+      event: 'UNICEF food drive',
+      date: 'March 13, 2021',
+      time: '2:30-5:00',
+      status: 'Going',
+
+    }, 
+    {
+      club: 'MSJ Biotechnology Club',
+      event: 'Weekly meeting',
+      date: 'March 2, 2021',
+      time: '2:30-5:00',
+      status: 'Going',
+
+    },
+  ];
 
   return (
+    
     <Fragment>
       <Grid container spacing={4}>
+        <Grid item xs={12} sm={6} lg={3}>
+          <Card className="p-3 mb-4 bg-unicef" style={{ height: '10rem' }}>
+            <Menus />
+            {/* <div style={{backgroundColor: 'rgba(255, 255, 255, 0.5)'}}></div> */}
+            <div className="text-black pt-2 text-center" style={{position: 'absolute', left: '0', right: '0', bottom: '1rem', alignItems: 'center'}}>MSJ UNICEF</div>
+          </Card>
+        </Grid>
+        <Grid item xs={12} sm={6} lg={3}>
+          <Card className="p-3 mb-4 bg-girlswhocode" style={{ height: '10rem' }}>
+            <Menus />
+            {/* <div style={{backgroundColor: 'rgba(255, 255, 255, 0.5)'}}></div> */}
+            <div className="text-black pt-2 text-center" style={{position: 'absolute', left: '0', right: '0', bottom: '1rem'}}>MSJ Girls Who Code</div>
+          </Card>
+        </Grid>
+        <Grid item xs={12} sm={6} lg={3}>
+          <Card className="p-3 mb-4 bg-biotechnology" style={{ height: '10rem' }}>
+            <Menus />
+            {/* <div style={{backgroundColor: 'rgba(255, 255, 255, 0.5)'}}></div> */}
+            <div className="text-black pt-2 text-center" style={{position: 'absolute', left: '0', right: '0', bottom: '1rem'}}>MSJ Biotechnology Club</div>
+          </Card>
+        </Grid>
+        <Grid item xs={12} sm={6} lg={3}>
+          <Card className="p-3 mb-4 bg-cs" style={{ height: '10rem' }}>
+            <Menus />
+            {/* <div style={{backgroundColor: 'rgba(255, 255, 255, 0.5)'}}></div> */}
+            <div className="text-black pt-2 text-center" style={{position: 'absolute', left: '0', right: '0', bottom: '1rem'}}>MSJ Computer Science Club</div>
+          </Card>
+        </Grid>
+      </Grid>
+      <Grid container spacing={4}>
         <Grid item xs={12} sm={6} md={4}>
-          <Card className="card-box bg-premium-dark border-0 text-light mb-4">
+          <Card className="card-box bg-light-gray border-0 text-light mb-4">
             <CardContent className="p-3">
               <div className="d-flex align-items-start">
                 <div className="font-weight-bold">
-                  <small className="text-white-50 d-block mb-1 text-uppercase">
-                    New Accounts
+                  <Menus />
+                  <small className="text-black-80 font-size-sm d-block mb-1 text-uppercase">
+                    MSJ Girls Who Code
                   </small>
-                  <span className="font-size-xxl mt-1">586,356</span>
-                </div>
-                <div className="ml-auto">
-                  <div className="bg-white text-center text-success d-50 rounded-circle d-flex align-items-center justify-content-center">
-                    <FontAwesomeIcon
-                      icon={['far', 'chart-bar']}
-                      className="font-size-xl"
-                    />
-                  </div>
+                  <span className="text-black-80 font-size-lg mt-1">Guest speaker event<br></br></span>
+                  <span className="text-black-80 font-size-sm mt-1"><br></br>February 31, 2021<br></br></span> 
+                  <span className="text-black-80 font-size-sm mt-1">3:30-4:30<br></br></span> 
                 </div>
               </div>
               <div className="mt-3">
                 <FontAwesomeIcon
-                  icon={['fas', 'arrow-up']}
+                  icon={['fas', 'circle']}
                   className="text-success mr-1"
                 />
-                <span className="text-success pr-1">15.4%</span>
-                <span className="text-white-50">increase this month</span>
+                <span className="text-black-80">Going</span>
               </div>
             </CardContent>
           </Card>
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
-          <Card className="card-box bg-midnight-bloom text-light mb-4">
+          <Card className="card-box bg-light-gray border-0 text-light mb-4">
             <CardContent className="p-3">
               <div className="d-flex align-items-start">
                 <div className="font-weight-bold">
-                  <small className="text-white-50 d-block mb-1 text-uppercase">
-                    Sales
+                  <Menus />
+                  <small className="text-black-80 font-size-sm d-block mb-1 text-uppercase">
+                    MSJ UNICEF
                   </small>
-                  <span className="font-size-xxl mt-1">23,274</span>
-                </div>
-                <div className="ml-auto">
-                  <div className="bg-white text-center text-primary d-50 rounded-circle d-flex align-items-center justify-content-center">
-                    <FontAwesomeIcon
-                      icon={['far', 'lightbulb']}
-                      className="font-size-xl"
-                    />
-                  </div>
+                  <span className="text-black-80 font-size-lg mt-1">UNICEF food drive<br></br></span>
+                  <span className="text-black-80 font-size-sm mt-1"><br></br>March 13, 2021<br></br></span> 
+                  <span className="text-black-80 font-size-sm mt-1">2:30-5:00<br></br></span> 
                 </div>
               </div>
               <div className="mt-3">
                 <FontAwesomeIcon
-                  icon={['fas', 'arrow-up']}
-                  className="text-warning mr-1"
+                  icon={['fas', 'circle']}
+                  className="text-success mr-1"
                 />
-                <span className="text-warning pr-1">7.4%</span>
-                <span className="text-white-50">same as before</span>
+                <span className="text-black-80">Going</span>
               </div>
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={4}>
-          <Card className="card-box bg-plum-plate text-light mb-4">
+        <Grid item xs={12} sm={6} md={4}>
+          <Card className="card-box bg-light-gray border-0 text-light mb-4">
             <CardContent className="p-3">
               <div className="d-flex align-items-start">
                 <div className="font-weight-bold">
-                  <small className="text-white-50 d-block mb-1 text-uppercase">
-                    Orders
+                  <Menus />
+                  <small className="text-black-80 font-size-sm d-block mb-1 text-uppercase">
+                    MSJ Biotechnology Club
                   </small>
-                  <span className="font-size-xxl mt-1">345</span>
-                </div>
-                <div className="ml-auto">
-                  <div className="bg-white text-center text-primary d-50 rounded-circle d-flex align-items-center justify-content-center">
-                    <FontAwesomeIcon
-                      icon={['far', 'chart-bar']}
-                      className="font-size-xl"
-                    />
-                  </div>
+                  <span className="text-black-80 font-size-lg mt-1">Weekly meeting<br></br></span>
+                  <span className="text-black-80 font-size-sm mt-1"><br></br>March 2, 2021<br></br></span> 
+                  <span className="text-black-80 font-size-sm mt-1">2:30-5:00<br></br></span> 
                 </div>
               </div>
               <div className="mt-3">
                 <FontAwesomeIcon
-                  icon={['fas', 'arrow-down']}
-                  className="text-white mr-1"
+                  icon={['fas', 'circle']}
+                  className="text-success mr-1"
                 />
-                <span className="text-white px-1">15.4%</span>
-                <span className="text-white-50">less orders</span>
+                <span className="text-black-80">Going</span>
               </div>
             </CardContent>
           </Card>
@@ -189,7 +237,7 @@ export default function LivePreviewExample() {
                     </div>
                     <div className="mt-3 line-height-sm">
                       <b className="font-size-lg">2,345</b>
-                      <span className="text-black-50 d-block">users</span>
+                      <span className="text-black-80 d-block">users</span>
                     </div>
                   </div>
                 </Grid>
@@ -203,7 +251,7 @@ export default function LivePreviewExample() {
                     </div>
                     <div className="mt-3 line-height-sm">
                       <b className="font-size-lg">3,568</b>
-                      <span className="text-black-50 d-block">clicks</span>
+                      <span className="text-black-80 d-block">clicks</span>
                     </div>
                   </div>
                 </Grid>
@@ -217,7 +265,7 @@ export default function LivePreviewExample() {
                     </div>
                     <div className="mt-3 line-height-sm">
                       <b className="font-size-lg">$9,693</b>
-                      <span className="text-black-50 d-block">revenue</span>
+                      <span className="text-black-80 d-block">revenue</span>
                     </div>
                   </div>
                 </Grid>
@@ -258,7 +306,7 @@ export default function LivePreviewExample() {
                     </div>
                     <div className="mt-3 line-height-sm">
                       <b className="font-size-lg">2,345</b>
-                      <span className="text-black-50 d-block">users</span>
+                      <span className="text-black-80 d-block">users</span>
                     </div>
                   </div>
                 </Grid>
@@ -272,7 +320,7 @@ export default function LivePreviewExample() {
                     </div>
                     <div className="mt-3 line-height-sm">
                       <b className="font-size-lg">3,568</b>
-                      <span className="text-black-50 d-block">clicks</span>
+                      <span className="text-black-80 d-block">clicks</span>
                     </div>
                   </div>
                 </Grid>
@@ -286,7 +334,7 @@ export default function LivePreviewExample() {
                     </div>
                     <div className="mt-3 line-height-sm">
                       <b className="font-size-lg">$9,693</b>
-                      <span className="text-black-50 d-block">revenue</span>
+                      <span className="text-black-80 d-block">revenue</span>
                     </div>
                   </div>
                 </Grid>
@@ -307,7 +355,7 @@ export default function LivePreviewExample() {
                 className="text-danger"
               />
               <span className="text-danger px-1">15.4%</span>
-              <span className="text-black-50">new sales today</span>
+              <span className="text-black-80">new sales today</span>
             </div>
             <div className="card-footer bg-light p-4 text-center">
               <Button color="primary" variant="contained">
