@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconButton, Menu, MenuItem, Box, Popover, Button } from '@material-ui/core';
+import { IconButton, Menu, MenuItem, Box, Popover } from '@material-ui/core';
 
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
@@ -72,12 +72,7 @@ export default function LongMenu() {
             horizontal: 'center'
           }}>
           <Box className="p-4" style={{ width: '18rem' }}>
-          UNICEF, also greatly known as the United Nations 
-          International Children's Emergency Fund, is a 
-          United Nations agency responsible for providing 
-          humanitarian and developmental aid to children 
-          worldwide.
-
+            desc
           </Box>
         </Popover>
     </div>
