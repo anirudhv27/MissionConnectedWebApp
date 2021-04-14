@@ -1,180 +1,161 @@
 import React, { Fragment } from 'react';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { Grid, Card, CardContent, Button, Divider } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
-import Chart from 'react-apexcharts';
+import Club from "./Club";
+import Event from "./Event";
+
+// import Chart from 'react-apexcharts';
+
+
 export default function LivePreviewExample() {
-  const chart30Options = {
-    chart: {
-      toolbar: {
-        show: false
-      },
-      sparkline: {
-        enabled: true
-      }
-    },
-    dataLabels: {
-      enabled: false
-    },
-    colors: ['#3c44b1'],
-    stroke: {
-      color: '#4191ff',
-      curve: 'smooth',
-      width: 4
-    },
-    xaxis: {
-      crosshairs: {
-        width: 1
-      }
-    },
-    yaxis: {
-      min: 0
-    },
-    legend: {
-      show: false
-    }
-  };
-  const chart30Data = [
+  
+  const events = [
     {
-      name: 'Customers',
-      data: [47, 38, 56, 24, 45, 54, 38, 47, 38, 56, 24, 56, 24, 65]
+      club: 'MSJ Girls Who Code',
+      event: 'Guest speaker event',
+      date: 'February 31, 2021',
+      time: '3:30-4:30',
+      status: 'Going',
+    }, 
+    {
+      club: 'MSJ UNICEF',
+      event: 'UNICEF food drive',
+      date: 'March 13, 2021',
+      time: '2:30-5:00',
+      status: 'Going',
+
+    }, 
+    {
+      club: 'MSJ Biotechnology Club',
+      event: 'Weekly meeting',
+      date: 'March 2, 2021',
+      time: '2:30-5:00',
+      status: 'Going',
+
+    },
+  ];
+  const clubs = [
+    {
+      name: 'MSJ UNICEF',
+      link: require('../../../assets/images/clubs-bg/unicef.jpg'),
+      description: "UNICEF, also greatly known as the United Nations International Children's Emergency Fund, is a United Nations agency responsible for providing humanitarian and developmental aid to children worldwide.",
+    },
+    {
+      name: 'MSJ Girls Who Code',
+      link: require('../../../assets/images/clubs-bg/girlswhocode.jpg'),
+      description: "MSJ Girls Who Code welcomes all levels of coders on campus looking to build a community and expand their coding skill set. Throughout the year, we host speakers, go on fieldtrips, attend hackathons as a club, and complete personal projects in multiple languages. In the past years, we’ve met Reshma Saujani, the CEO of GWC, visited Netflix and Google, and invited speakers from a vast range of fields. We compete at CodeDay annually and teach many languages including HTML, Javascript, Python, etc. Join for a new learning experience every week! Join our Facebook group (@MSJ Girls Who Code) for up to date meeting information and email us at msjgwc@gmail.com with any questions. ",
+    },
+    {
+      name: 'MSJ Biotechnology Club',
+      link: require('../../../assets/images/clubs-bg/biotechnology.jpg'),
+      description: "MSJ Biotechnology Club is a student organization for students interested in careers in the STEM field. We explore the link between healthcare and technology through lab work and research experiment. We listen to guest speakers talk about careers in this field, discuss journal articles, and participate in local STEM focused events. Whether you're iterested in medicine, robotics, or research, MSJ Biotechnology Club will help enrich your understanding in this vast field.",
+    },
+    {
+      name: 'MSJ Computer Science Club',
+      link: require('../../../assets/images/clubs-bg/cs.jpg'),
+      description: "We meet on Fridays from 3 to 4 pm on our Discord server (join using this link: https://discord.gg/JWu6KPz). Please also join our Facebook Group, MSJ Compsci Club. If you have any questions, ask on Discord, contact an officer on Messenger, or email msjhscompsci@gmail.com.",
     }
   ];
 
-  const chart31Options = {
-    chart: {
-      toolbar: {
-        show: false
-      },
-      sparkline: {
-        enabled: true
-      }
-    },
-    dataLabels: {
-      enabled: false
-    },
-    colors: ['#f4772e'],
-    stroke: {
-      color: '#4191ff',
-      curve: 'smooth',
-      width: 3
-    },
-    xaxis: {
-      crosshairs: {
-        width: 1
-      }
-    },
-    yaxis: {
-      min: 0
-    },
-    legend: {
-      show: false
-    }
-  };
-  const chart31Data = [
-    {
-      name: 'Sales',
-      data: [47, 38, 56, 24, 45, 54, 38, 47, 38, 56, 24, 56, 24, 65]
-    }
-  ];
+  
+  // const chart30Options = {
+  //   chart: {
+  //     toolbar: {
+  //       show: false
+  //     },
+  //     sparkline: {
+  //       enabled: true
+  //     }
+  //   },
+  //   dataLabels: {
+  //     enabled: false
+  //   },
+  //   colors: ['#3c44b1'],
+  //   stroke: {
+  //     color: '#4191ff',
+  //     curve: 'smooth',
+  //     width: 4
+  //   },
+  //   xaxis: {
+  //     crosshairs: {
+  //       width: 1
+  //     }
+  //   },
+  //   yaxis: {
+  //     min: 0
+  //   },
+  //   legend: {
+  //     show: false
+  //   }
+  // };
+  // const chart30Data = [
+  //   {
+  //     name: 'Customers',
+  //     data: [47, 38, 56, 24, 45, 54, 38, 47, 38, 56, 24, 56, 24, 65]
+  //   }
+  // ];
+
+  // const chart31Options = {
+  //   chart: {
+  //     toolbar: {
+  //       show: false
+  //     },
+  //     sparkline: {
+  //       enabled: true
+  //     }
+  //   },
+  //   dataLabels: {
+  //     enabled: false
+  //   },
+  //   colors: ['#f4772e'],
+  //   stroke: {
+  //     color: '#4191ff',
+  //     curve: 'smooth',
+  //     width: 3
+  //   },
+  //   xaxis: {
+  //     crosshairs: {
+  //       width: 1
+  //     }
+  //   },
+  //   yaxis: {
+  //     min: 0
+  //   },
+  //   legend: {
+  //     show: false
+  //   }
+  // };
+  // const chart31Data = [
+  //   {
+  //     name: 'Sales',
+  //     data: [47, 38, 56, 24, 45, 54, 38, 47, 38, 56, 24, 56, 24, 65]
+  //   }
+  // ];
+  function generateClubs(clubs) {
+    return clubs.map((club) => {
+      return <Club name={club.name} link={club.link} description={club.description}/>;
+    });
+  }
+
+  function generateEvents(events) {
+    return events.map((event) => {
+      return <Event club={event.club} event={event.event} date={event.date} time={event.time} status={event.status} />;
+    });
+  }
 
   return (
     <Fragment>
       <Grid container spacing={4}>
-        <Grid item xs={12} sm={6} md={4}>
-          <Card className="card-box bg-premium-dark border-0 text-light mb-4">
-            <CardContent className="p-3">
-              <div className="d-flex align-items-start">
-                <div className="font-weight-bold">
-                  <small className="text-white-50 d-block mb-1 text-uppercase">
-                    New Accounts
-                  </small>
-                  <span className="font-size-xxl mt-1">586,356</span>
-                </div>
-                <div className="ml-auto">
-                  <div className="bg-white text-center text-success d-50 rounded-circle d-flex align-items-center justify-content-center">
-                    <FontAwesomeIcon
-                      icon={['far', 'chart-bar']}
-                      className="font-size-xl"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="mt-3">
-                <FontAwesomeIcon
-                  icon={['fas', 'arrow-up']}
-                  className="text-success mr-1"
-                />
-                <span className="text-success pr-1">15.4%</span>
-                <span className="text-white-50">increase this month</span>
-              </div>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <Card className="card-box bg-midnight-bloom text-light mb-4">
-            <CardContent className="p-3">
-              <div className="d-flex align-items-start">
-                <div className="font-weight-bold">
-                  <small className="text-white-50 d-block mb-1 text-uppercase">
-                    Sales
-                  </small>
-                  <span className="font-size-xxl mt-1">23,274</span>
-                </div>
-                <div className="ml-auto">
-                  <div className="bg-white text-center text-primary d-50 rounded-circle d-flex align-items-center justify-content-center">
-                    <FontAwesomeIcon
-                      icon={['far', 'lightbulb']}
-                      className="font-size-xl"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="mt-3">
-                <FontAwesomeIcon
-                  icon={['fas', 'arrow-up']}
-                  className="text-warning mr-1"
-                />
-                <span className="text-warning pr-1">7.4%</span>
-                <span className="text-white-50">same as before</span>
-              </div>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={12} md={4}>
-          <Card className="card-box bg-plum-plate text-light mb-4">
-            <CardContent className="p-3">
-              <div className="d-flex align-items-start">
-                <div className="font-weight-bold">
-                  <small className="text-white-50 d-block mb-1 text-uppercase">
-                    Orders
-                  </small>
-                  <span className="font-size-xxl mt-1">345</span>
-                </div>
-                <div className="ml-auto">
-                  <div className="bg-white text-center text-primary d-50 rounded-circle d-flex align-items-center justify-content-center">
-                    <FontAwesomeIcon
-                      icon={['far', 'chart-bar']}
-                      className="font-size-xl"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="mt-3">
-                <FontAwesomeIcon
-                  icon={['fas', 'arrow-down']}
-                  className="text-white mr-1"
-                />
-                <span className="text-white px-1">15.4%</span>
-                <span className="text-white-50">less orders</span>
-              </div>
-            </CardContent>
-          </Card>
-        </Grid>
+      {generateClubs(clubs)}
       </Grid>
       <Grid container spacing={4}>
+      {generateEvents(events)}
+      </Grid>
+
+      {/* <Grid container spacing={4}>
         <Grid item xs={12} lg={6}>
           <Card className="card-box mb-4">
             <CardContent className="p-0">
@@ -189,7 +170,7 @@ export default function LivePreviewExample() {
                     </div>
                     <div className="mt-3 line-height-sm">
                       <b className="font-size-lg">2,345</b>
-                      <span className="text-black-50 d-block">users</span>
+                      <span className="text-black-80 d-block">users</span>
                     </div>
                   </div>
                 </Grid>
@@ -203,7 +184,7 @@ export default function LivePreviewExample() {
                     </div>
                     <div className="mt-3 line-height-sm">
                       <b className="font-size-lg">3,568</b>
-                      <span className="text-black-50 d-block">clicks</span>
+                      <span className="text-black-80 d-block">clicks</span>
                     </div>
                   </div>
                 </Grid>
@@ -217,7 +198,7 @@ export default function LivePreviewExample() {
                     </div>
                     <div className="mt-3 line-height-sm">
                       <b className="font-size-lg">$9,693</b>
-                      <span className="text-black-50 d-block">revenue</span>
+                      <span className="text-black-80 d-block">revenue</span>
                     </div>
                   </div>
                 </Grid>
@@ -258,7 +239,7 @@ export default function LivePreviewExample() {
                     </div>
                     <div className="mt-3 line-height-sm">
                       <b className="font-size-lg">2,345</b>
-                      <span className="text-black-50 d-block">users</span>
+                      <span className="text-black-80 d-block">users</span>
                     </div>
                   </div>
                 </Grid>
@@ -272,7 +253,7 @@ export default function LivePreviewExample() {
                     </div>
                     <div className="mt-3 line-height-sm">
                       <b className="font-size-lg">3,568</b>
-                      <span className="text-black-50 d-block">clicks</span>
+                      <span className="text-black-80 d-block">clicks</span>
                     </div>
                   </div>
                 </Grid>
@@ -286,7 +267,7 @@ export default function LivePreviewExample() {
                     </div>
                     <div className="mt-3 line-height-sm">
                       <b className="font-size-lg">$9,693</b>
-                      <span className="text-black-50 d-block">revenue</span>
+                      <span className="text-black-80 d-block">revenue</span>
                     </div>
                   </div>
                 </Grid>
@@ -307,7 +288,7 @@ export default function LivePreviewExample() {
                 className="text-danger"
               />
               <span className="text-danger px-1">15.4%</span>
-              <span className="text-black-50">new sales today</span>
+              <span className="text-black-80">new sales today</span>
             </div>
             <div className="card-footer bg-light p-4 text-center">
               <Button color="primary" variant="contained">
@@ -319,7 +300,7 @@ export default function LivePreviewExample() {
             </div>
           </Card>
         </Grid>
-      </Grid>
+      </Grid> */}
     </Fragment>
   );
 }
