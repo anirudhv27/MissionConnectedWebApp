@@ -28,7 +28,6 @@ import { AuthProvider } from "./contexts/AuthContext";
 
 const Dashboard = lazy(() => import('./example-pages/LandingPage/Dashboard'));
 const DashboardDefault = lazy(() => import('./example-pages/DashboardDefault'));
-const LoginButton = lazy(() => import('./example-pages/LoginButton'));
 const Login = lazy(() => import('./example-pages/LandingPage/Login'));
 const PrivateRoute = lazy(() => import('./example-pages/LandingPage/PrivateRoute'));
 const Cards3 = lazy(() => import('./example-pages/Cards3'));
@@ -131,7 +130,6 @@ const Routes = () => {
                 '/ApexCharts',
                 '/Maps',
                 '/ListGroups',
-                '/LoginButton',
                 '/Dashboard'
               ]}>
               <LeftSidebar>
@@ -152,7 +150,6 @@ const Routes = () => {
                       path="/NavigationMenus"
                       component={NavigationMenus}
                     />
-                    <Route path="/LoginButton" component={LoginButton} />
                     <Route path="/ProgressBars" component={ProgressBars} />
                     <Route path="/Pagination" component={Pagination} />
                     <Route path="/Scrollable" component={Scrollable} />
