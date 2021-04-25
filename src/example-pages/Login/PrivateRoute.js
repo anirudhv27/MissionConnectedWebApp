@@ -12,7 +12,7 @@ export default function PrivateRoute({ component: Component, ...rest }) {
         return currentUser ? (
           <Component {...props} />
         ) : (
-          <Redirect to="/ui/login" />
+          <Redirect to="/ui/Login" />
         );
       }}
     />
