@@ -24,11 +24,14 @@ import UtilitiesHelpers from './example-pages/UtilitiesHelpers';
 import RegularTables1 from './example-pages/RegularTables1';
 import RegularTables4 from './example-pages/RegularTables4';
 import FormsControls from './example-pages/FormsControls';
+import { AuthProvider } from "./contexts/AuthContext";
 
+const Dashboard = lazy(() => import('./example-pages/LandingPage/Dashboard'));
 const DashboardDefault = lazy(() => import('./example-pages/DashboardDefault'));
 const LoginButton = lazy(() => import('./example-pages/LoginButton'));
+const Login = lazy(() => import('./example-pages/LandingPage/Login'));
+const PrivateRoute = lazy(() => import('./example-pages/LandingPage/PrivateRoute'));
 const Cards3 = lazy(() => import('./example-pages/Cards3'));
-const LandingPage = lazy(() => import('./example-pages/LandingPage'));
 
 const Accordions = lazy(() => import('./example-pages/Accordions'));
 const Modals = lazy(() => import('./example-pages/Modals'));
@@ -75,9 +78,10 @@ const Routes = () => {
             </div>
           }>
           <Switch>
-            <Redirect exact from="/" to="/LoginButton" />
+            <Redirect exact from="/" to="/LandingPage" />
             <Route path={['/LandingPage']}>
               <PresentationLayout>
+              <AuthProvider>
                 <Switch location={location} key={location.pathname}>
                   <motion.div
                     initial="initial"
@@ -85,9 +89,19 @@ const Routes = () => {
                     exit="out"
                     variants={pageVariants}
                     transition={pageTransition}>
-                    <Route path="/LandingPage" component={LandingPage} />
+                    <PrivateRoute exact path="/Dashboard" component={Dashboard} />
+                    <Route  component={Login} />
                   </motion.div>
                 </Switch>
+                </AuthProvider>
+              </PresentationLayout>
+            </Route>
+
+            <Route path={['/Dashboard']}>
+              <PresentationLayout>
+              <AuthProvider>
+                  <Route  component={Dashboard} />
+                </AuthProvider>
               </PresentationLayout>
             </Route>
 
@@ -117,7 +131,8 @@ const Routes = () => {
                 '/ApexCharts',
                 '/Maps',
                 '/ListGroups',
-                '/LoginButton'
+                '/LoginButton',
+                '/Dashboard'
               ]}>
               <LeftSidebar>
                 <Switch location={location} key={location.pathname}>
