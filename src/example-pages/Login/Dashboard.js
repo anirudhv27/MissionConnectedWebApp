@@ -10,11 +10,13 @@ export default function Dashboard() {
   const history = useHistory();
 
   async function handleLogout() {
+    alert("logout");
     setError("");
     try {
       await logout();
-      history.pushState("/Login");
-    } catch {
+      history.push("/Login");
+    } catch (err){
+      console.error(err);
       setError("Failed to Log Out");
     }
   }
@@ -27,9 +29,9 @@ export default function Dashboard() {
         <h1 className="display-2 mb-5 font-weight-bold">
             Mission Connect
           </h1>
-          <h2 className="text-center mb-4">Profile</h2>
+          <h2 className="text-center mb-4">Profile</h2>{currentUser.email}
           {error && <Alert variant="danger">{error}</Alert>}
-          <strong>Email: </strong> {currentUser.email}
+          <strong>Email: </strong> 
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">

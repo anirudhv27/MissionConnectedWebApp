@@ -28,7 +28,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 
 const Dashboard = lazy(() => import('./example-pages/Login/Dashboard'));
 const DashboardDefault = lazy(() => import('./example-pages/DashboardDefault'));
-const Login = lazy(() => import('./example-pages/Login/Login'));
+const Login = lazy(() => import('./example-pages/Login'));
 const PrivateRoute = lazy(() => import('./example-pages/Login/PrivateRoute'));
 const Cards3 = lazy(() => import('./example-pages/Cards3'));
 
@@ -89,7 +89,7 @@ const Routes = () => {
                     variants={pageVariants}
                     transition={pageTransition}>
                     <PrivateRoute exact path="/Dashboard" component={Dashboard} />
-                    <Route  component={Login} />
+                    <Route   component={Login} />
                   </motion.div>
                 </Switch>
                 </AuthProvider>
@@ -99,7 +99,7 @@ const Routes = () => {
             <Route path={['/Dashboard']}>
               <PresentationLayout>
               <AuthProvider>
-                  <Route  component={Dashboard} />
+                  <PrivateRoute  component={Dashboard} />
                 </AuthProvider>
               </PresentationLayout>
             </Route>
@@ -140,37 +140,39 @@ const Routes = () => {
                     exit="out"
                     variants={pageVariants}
                     transition={pageTransition}>
-                    <Route
+                    <AuthProvider>
+                    <PrivateRoute
                       path="/DashboardDefault"
                       component={DashboardDefault}
                     />
-                    <Route path="/Buttons" component={Buttons} />
-                    <Route path="/Dropdowns" component={Dropdowns} />
-                    <Route
+                    <PrivateRoute path="/Buttons" component={Buttons} />
+                    <PrivateRoute path="/Dropdowns" component={Dropdowns} />
+                    <PrivateRoute
                       path="/NavigationMenus"
                       component={NavigationMenus}
                     />
-                    <Route path="/ProgressBars" component={ProgressBars} />
-                    <Route path="/Pagination" component={Pagination} />
-                    <Route path="/Scrollable" component={Scrollable} />
-                    <Route path="/Badges" component={Badges} />
-                    <Route path="/Icons" component={Icons} />
-                    <Route
+                    <PrivateRoute path="/ProgressBars" component={ProgressBars} />
+                    <PrivateRoute path="/Pagination" component={Pagination} />
+                    <PrivateRoute path="/Scrollable" component={Scrollable} />
+                    <PrivateRoute path="/Badges" component={Badges} />
+                    <PrivateRoute path="/Icons" component={Icons} />
+                    <PrivateRoute
                       path="/UtilitiesHelpers"
                       component={UtilitiesHelpers}
                     />
-                    <Route path="/Cards3" component={Cards3} />
-                    <Route path="/Accordions" component={Accordions} />
-                    <Route path="/Modals" component={Modals} />
-                    <Route path="/Notifications" component={Notifications} />
-                    <Route path="/Popovers" component={Popovers} />
-                    <Route path="/Tabs" component={Tabs} />
-                    <Route path="/RegularTables1" component={RegularTables1} />
-                    <Route path="/RegularTables4" component={RegularTables4} />
-                    <Route path="/FormsControls" component={FormsControls} />
-                    <Route path="/ApexCharts" component={ApexCharts} />
-                    <Route path="/Maps" component={Maps} />
-                    <Route path="/ListGroups" component={ListGroups} />
+                    <PrivateRoute path="/Cards3" component={Cards3} />
+                    <PrivateRoute path="/Accordions" component={Accordions} />
+                    <PrivateRoute path="/Modals" component={Modals} />
+                    <PrivateRoute path="/Notifications" component={Notifications} />
+                    <PrivateRoute path="/Popovers" component={Popovers} />
+                    <PrivateRoute path="/Tabs" component={Tabs} />
+                    <PrivateRoute path="/RegularTables1" component={RegularTables1} />
+                    <PrivateRoute path="/RegularTables4" component={RegularTables4} />
+                    <PrivateRoute path="/FormsControls" component={FormsControls} />
+                    <PrivateRoute path="/ApexCharts" component={ApexCharts} />
+                    <PrivateRoute path="/Maps" component={Maps} />
+                    <PrivateRoute path="/ListGroups" component={ListGroups} />
+                    </AuthProvider>
                   </motion.div>
                 </Switch>
               </LeftSidebar>
