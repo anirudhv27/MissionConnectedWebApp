@@ -66,6 +66,7 @@ const Routes = () => {
   };
 
   return (
+    <AuthProvider>
     <ThemeProvider theme={MuiTheme}>
       <AnimatePresence>
         <Suspense
@@ -80,7 +81,6 @@ const Routes = () => {
             <Redirect exact from="/" to="/Dashboard" />
             <Route path={['/Login']}>
               <PresentationLayout>
-              <AuthProvider>
                 <Switch location={location} key={location.pathname}>
                   <motion.div
                     initial="initial"
@@ -92,15 +92,12 @@ const Routes = () => {
                     <Route   component={Login} />
                   </motion.div>
                 </Switch>
-                </AuthProvider>
               </PresentationLayout>
             </Route>
 
             <Route path={['/Dashboard']}>
               <PresentationLayout>
-              <AuthProvider>
                   <PrivateRoute  component={Dashboard} />
-                </AuthProvider>
               </PresentationLayout>
             </Route>
 
@@ -140,39 +137,37 @@ const Routes = () => {
                     exit="out"
                     variants={pageVariants}
                     transition={pageTransition}>
-                    <AuthProvider>
-                    <PrivateRoute
-                      path="/DashboardDefault"
-                      component={DashboardDefault}
-                    />
-                    <PrivateRoute path="/Buttons" component={Buttons} />
-                    <PrivateRoute path="/Dropdowns" component={Dropdowns} />
-                    <PrivateRoute
-                      path="/NavigationMenus"
-                      component={NavigationMenus}
-                    />
-                    <PrivateRoute path="/ProgressBars" component={ProgressBars} />
-                    <PrivateRoute path="/Pagination" component={Pagination} />
-                    <PrivateRoute path="/Scrollable" component={Scrollable} />
-                    <PrivateRoute path="/Badges" component={Badges} />
-                    <PrivateRoute path="/Icons" component={Icons} />
-                    <PrivateRoute
-                      path="/UtilitiesHelpers"
-                      component={UtilitiesHelpers}
-                    />
-                    <PrivateRoute path="/Cards3" component={Cards3} />
-                    <PrivateRoute path="/Accordions" component={Accordions} />
-                    <PrivateRoute path="/Modals" component={Modals} />
-                    <PrivateRoute path="/Notifications" component={Notifications} />
-                    <PrivateRoute path="/Popovers" component={Popovers} />
-                    <PrivateRoute path="/Tabs" component={Tabs} />
-                    <PrivateRoute path="/RegularTables1" component={RegularTables1} />
-                    <PrivateRoute path="/RegularTables4" component={RegularTables4} />
-                    <PrivateRoute path="/FormsControls" component={FormsControls} />
-                    <PrivateRoute path="/ApexCharts" component={ApexCharts} />
-                    <PrivateRoute path="/Maps" component={Maps} />
-                    <PrivateRoute path="/ListGroups" component={ListGroups} />
-                    </AuthProvider>
+                        <PrivateRoute
+                          path="/DashboardDefault"
+                          component={DashboardDefault}
+                        />
+                        <PrivateRoute path="/Buttons" component={Buttons} />
+                        <PrivateRoute path="/Dropdowns" component={Dropdowns} />
+                        <PrivateRoute
+                          path="/NavigationMenus"
+                          component={NavigationMenus}
+                        />
+                        <PrivateRoute path="/ProgressBars" component={ProgressBars} />
+                        <PrivateRoute path="/Pagination" component={Pagination} />
+                        <PrivateRoute path="/Scrollable" component={Scrollable} />
+                        <PrivateRoute path="/Badges" component={Badges} />
+                        <PrivateRoute path="/Icons" component={Icons} />
+                        <PrivateRoute
+                          path="/UtilitiesHelpers"
+                          component={UtilitiesHelpers}
+                        />
+                        <PrivateRoute path="/Cards3" component={Cards3} />
+                        <PrivateRoute path="/Accordions" component={Accordions} />
+                        <PrivateRoute path="/Modals" component={Modals} />
+                        <PrivateRoute path="/Notifications" component={Notifications} />
+                        <PrivateRoute path="/Popovers" component={Popovers} />
+                        <PrivateRoute path="/Tabs" component={Tabs} />
+                        <PrivateRoute path="/RegularTables1" component={RegularTables1} />
+                        <PrivateRoute path="/RegularTables4" component={RegularTables4} />
+                        <PrivateRoute path="/FormsControls" component={FormsControls} />
+                        <PrivateRoute path="/ApexCharts" component={ApexCharts} />
+                        <PrivateRoute path="/Maps" component={Maps} />
+                        <PrivateRoute path="/ListGroups" component={ListGroups} />
                   </motion.div>
                 </Switch>
               </LeftSidebar>
@@ -181,6 +176,7 @@ const Routes = () => {
         </Suspense>
       </AnimatePresence>
     </ThemeProvider>
+    </AuthProvider>
   );
 };
 
