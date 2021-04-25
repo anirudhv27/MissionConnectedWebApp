@@ -22,6 +22,7 @@ export default function Club(props) {
 
   const handleClickPopover3 = event => {
     setAnchorEl3(event.currentTarget);
+    setAnchorEl(null);
   };
   const handleClosePopover3 = () => {
     setAnchorEl3(null);
@@ -81,12 +82,10 @@ export default function Club(props) {
               borderRadius: '0.5rem',
               overflow: 'auto',
               padding: '1vw',
-              
-
               }}>
-              <div className="close" onClick={close} style={{padding: '0.5vw'}}>
+              <button className="close" onClick={close} style={{padding: '0.5vw'}}>
                 &times;
-              </div>
+              </button>
               <div className="content" style={{
                 padding: '3vw'
               }}>
