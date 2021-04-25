@@ -77,7 +77,7 @@ const Routes = () => {
             </div>
           }>
           <Switch>
-            <Redirect exact from="/" to="/Login" />
+            <Redirect exact from="/" to="/Dashboard" />
             <Route path={['/Login']}>
               <PresentationLayout>
               <AuthProvider>
