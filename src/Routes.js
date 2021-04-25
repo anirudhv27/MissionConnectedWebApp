@@ -26,10 +26,10 @@ import RegularTables4 from './example-pages/RegularTables4';
 import FormsControls from './example-pages/FormsControls';
 import { AuthProvider } from "./contexts/AuthContext";
 
-const Dashboard = lazy(() => import('./example-pages/LandingPage/Dashboard'));
+const Dashboard = lazy(() => import('./example-pages/Login/Dashboard'));
 const DashboardDefault = lazy(() => import('./example-pages/DashboardDefault'));
-const Login = lazy(() => import('./example-pages/LandingPage/Login'));
-const PrivateRoute = lazy(() => import('./example-pages/LandingPage/PrivateRoute'));
+const Login = lazy(() => import('./example-pages/Login/Login'));
+const PrivateRoute = lazy(() => import('./example-pages/Login/PrivateRoute'));
 const Cards3 = lazy(() => import('./example-pages/Cards3'));
 
 const Accordions = lazy(() => import('./example-pages/Accordions'));
@@ -77,8 +77,8 @@ const Routes = () => {
             </div>
           }>
           <Switch>
-            <Redirect exact from="/" to="/LandingPage" />
-            <Route path={['/LandingPage']}>
+            <Redirect exact from="/" to="/Login" />
+            <Route path={['/Login']}>
               <PresentationLayout>
               <AuthProvider>
                 <Switch location={location} key={location.pathname}>
