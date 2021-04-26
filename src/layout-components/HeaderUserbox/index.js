@@ -14,9 +14,13 @@ import {
 } from '@material-ui/core';
 
 import avatar5 from '../../assets/images/avatars/vigneshmissionconnectedpfp.jpeg';
-export default function HeaderUserbox() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
 
+import { useAuth } from "../../contexts/AuthContext";
+
+export default function HeaderUserbox() {
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const { currentUser } = useAuth();
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };
@@ -32,10 +36,10 @@ export default function HeaderUserbox() {
         onClick={handleClick}
         className="text-capitalize px-3 text-left btn-inverse d-flex align-items-center">
         <Box>
-          <Avatar sizes="44" alt="Emma Taylor" src={avatar5} />
+          <Avatar sizes="44" alt="Emma Taylor" src={currentUser.photoURL} />
         </Box>
         <div className="d-none d-xl-block pl-3">
-          <div className="font-weight-bold pt-2 line-height-1">Vignesh Rangarajan</div>
+          <div className="font-weight-bold pt-2 line-height-1">{currentUser.displayName}</div>
           <span className="text-white-50">MissionConnect Developer</span>
         </div>
         <span className="pl-1 pl-xl-3">
@@ -61,14 +65,14 @@ export default function HeaderUserbox() {
         <div className="dropdown-menu-right dropdown-menu-lg overflow-hidden p-0">
           <List className="text-left bg-transparent d-flex align-items-center flex-column pt-0">
             <Box>
-              <Avatar sizes="44" alt="Emma Taylor" src={avatar5} />
+              <Avatar sizes="44" alt="Emma Taylor" src={currentUser.photoURL} />
             </Box>
             <div className="pl-3  pr-3">
               <div className="font-weight-bold text-center pt-2 line-height-1">
-                Ryan Kent
+              {currentUser.displayName}
               </div>
               <span className="text-black-50 text-center">
-                Senior React Developer
+                MissionConnected Developer
               </span>
             </div>
             <Divider className="w-100 mt-2" />

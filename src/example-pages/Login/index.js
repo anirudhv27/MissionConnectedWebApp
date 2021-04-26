@@ -1,3 +1,6 @@
+
+
+
 import React, { useState, useEffect } from "react";
 import {
   Form,
@@ -25,7 +28,7 @@ export default function Login() {
       setError("");
       setLoading(true);
       await signInWithGoogle();
-      history.push("/");
+      history.push("/Dashboard");
     } catch {
       setError("Failed to sign in");
     }
@@ -36,6 +39,9 @@ export default function Login() {
     <div>
       <Card>
         <Card.Body>
+          <h1 className="display-2 mb-5 font-weight-bold">
+            Mission Connect
+          </h1>
           <h2 className="text-center mb-4">Sign in to Mission Connected</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
@@ -55,3 +61,4 @@ export default function Login() {
     </div>
   );
 }
+

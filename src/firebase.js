@@ -14,4 +14,9 @@ const app = firebase.initializeApp({
 
 export const auth = app.auth();
 export const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+googleAuthProvider.setCustomParameters({
+  // Forces account selection even when one account
+  // is available.
+  hd: 'fusdk12.net'
+});
 export default app;

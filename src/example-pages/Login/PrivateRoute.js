@@ -4,7 +4,8 @@ import { useAuth } from "../../contexts/AuthContext";
 
 export default function PrivateRoute({ component: Component, ...rest }) {
   const { currentUser } = useAuth();
-
+  console.log( currentUser);
+  console.log( Component);
   return (
     <Route
       {...rest}
@@ -12,7 +13,7 @@ export default function PrivateRoute({ component: Component, ...rest }) {
         return currentUser ? (
           <Component {...props} />
         ) : (
-          <Redirect to="/ui/login" />
+          <Redirect to="/Login" />
         );
       }}
     />
