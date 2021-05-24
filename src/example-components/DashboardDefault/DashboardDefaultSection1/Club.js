@@ -1,5 +1,6 @@
-import React from "react";
-import { Grid, Card, IconButton, Menu, MenuItem, Box, Popover } from '@material-ui/core';
+import React from 'react';
+import Popup from 'reactjs-popup';
+import { Grid, Card, IconButton, Menu, MenuItem, Button, Box, Popover } from '@material-ui/core';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const ITEM_HEIGHT = 20;
@@ -21,6 +22,7 @@ export default function Club(props) {
 
   const handleClickPopover3 = event => {
     setAnchorEl3(event.currentTarget);
+    setAnchorEl(null);
   };
   const handleClosePopover3 = () => {
     setAnchorEl3(null);
@@ -64,26 +66,62 @@ export default function Club(props) {
           <MenuItem onClick={handleClickPopover3}>View club info</MenuItem>
           
         </Menu>
-        <Popover
+
+        <Popup
+          modal
           open={open3}
           anchorEl={anchorEl3}
           onClose={handleClosePopover3}
-          anchorOrigin={{
-            vertical: 'center',
-            horizontal: 'center'
-          }}
-          transformOrigin={{
-            vertical: 'center',
-            horizontal: 'center'
-          }}>
-          <Box className="p-4" style={{ width: '22rem' }}>
-            {props.description}
-          </Box>
-        </Popover>
+        >
+          {close => (
+            <div style={{
+              width: '70vw',
+              height: '70vh',
+              backgroundColor: 'white',
+              border: '1px solid gray',
+              borderRadius: '0.5rem',
+              overflow: 'auto',
+              padding: '1vw',
+              }}>
+              <button className="close" onClick={close} style={{padding: '0.5vw'}}>
+                &times;
+              </button>
+              <div className="content" style={{
+                padding: '3vw'
+              }}>
+                <div className="details" style={{
+                  width: '45%', 
+                  float: 'left',
+                  }}>
+                  <img src={props.link} style={{width: '100%', borderRadius: '0.5rem'}}/>
+
+                  <div className="header text-black font-size-xxl font-weight-bold"><br></br>{props.name}</div>
+                  <div className="text-black font-size-lg">Members: {props.members} joined</div>
+                  <div className="text-black font-size-lg font-weight-bold"><br></br>{props.meetings}<br></br></div>
+                </div>
+                <div className="bg-light-gray" style={{
+                  width: '50%',
+                  height: '90%',
+                  padding: '2vw',
+                  borderRadius: '0.5rem',
+                  float: 'right',
+                  top: '0',
+                }}>
+                  <div className="text-black font-size-xxl font-weight-bold" style={{marginBottom: '2vh'}}>Club Description</div>
+                  <div className="description font-size-lg" style={{maxHeight: '30vh', overflow: 'auto'}}>{props.description}</div>
+                  <div className="text-center" style={{padding: '2vw'}}>
+                    <Button className="font-weight-bold" style={{backgroundColor: 'rgb(194, 212, 194)', width: '50%', height: '6vh'}}>
+                      <div className="font-size-lg">Join Club</div>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </Popup>
+        
       </div>
-  
-      {/* <Menus /> */}
-      <div className="text-black pt-2 text-center font-weight-bold" style={{
+        <div className="text-black pt-2 text-center font-weight-bold" style={{
         position: 'absolute', 
         left: '0', 
         right: '0', 
