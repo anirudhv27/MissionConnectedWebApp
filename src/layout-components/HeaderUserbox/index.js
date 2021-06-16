@@ -24,11 +24,24 @@ export default function HeaderUserbox() {
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };
+  async function handleLogout() {
+    alert("logout");
+    /*setError("");
+    try {
+      await logout();
+      history.push("/Login");
+    } catch (err){
+      console.error(err);
+      setError("Failed to Log Out");
+    }*/
+  }
 
   const handleClose = () => {
     setAnchorEl(null);
   };
-
+  /*if (currentUser.email.indexOf(fusdk12.net == -1)){
+    handleLogout()
+  }*/
   return (
     <Fragment>
       <Button
@@ -40,7 +53,7 @@ export default function HeaderUserbox() {
         </Box>
         <div className="d-none d-xl-block pl-3">
           <div className="font-weight-bold pt-2 line-height-1">{currentUser.displayName}</div>
-          <span className="text-white-50">MissionConnect Developer</span>
+          <span className="text-white-50">MissionConnected</span>
         </div>
         <span className="pl-1 pl-xl-3">
           <FontAwesomeIcon icon={['fas', 'angle-down']} className="opacity-5" />
