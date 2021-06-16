@@ -1,7 +1,6 @@
-import React, { Fragment } from 'react';
-
+import React, { Fragment, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { Link, useHistory } from "react-router-dom";
 import {
   Avatar,
   Box,
@@ -18,30 +17,31 @@ import avatar5 from '../../assets/images/avatars/vigneshmissionconnectedpfp.jpeg
 import { useAuth } from "../../contexts/AuthContext";
 
 export default function HeaderUserbox() {
-
+  const [error, setError] = useState("");
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const { currentUser } = useAuth();
+  const { currentUser, logout } = useAuth();
+  const history = useHistory();
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };
   async function handleLogout() {
     alert("logout");
-    /*setError("");
+    setError("");
     try {
       await logout();
-      history.push("/Login");
+      history.push("/");
     } catch (err){
       console.error(err);
       setError("Failed to Log Out");
-    }*/
+    }
   }
 
   const handleClose = () => {
     setAnchorEl(null);
   };
-  /*if (currentUser.email.indexOf(fusdk12.net == -1)){
+  if (currentUser.email.indexOf("fusdk12.net") == -1){
     handleLogout()
-  }*/
+  }
   return (
     <Fragment>
       <Button

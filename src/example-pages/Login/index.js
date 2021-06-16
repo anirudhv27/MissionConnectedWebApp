@@ -30,7 +30,7 @@ export default function Login() {
       await signInWithGoogle();
       history.push("/Dashboard");
     } catch {
-      setError("Failed to sign in");
+      setError("Failed to sign in  - you have to use fusd email");
     }
     setLoading(false);
   }
