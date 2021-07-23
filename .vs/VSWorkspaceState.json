@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\contexts",
+    "\\src\\example-components",
+    "\\src\\example-components\\DashboardDefault",
+    "\\src\\example-components\\DashboardDefault\\DashboardDefaultSection2",
+    "\\src\\example-components\\Menus",
+    "\\src\\example-components\\Modals",
+    "\\src\\example-pages",
+    "\\src\\example-pages\\Login"
+  ],
+  "SelectedNode": "\\src\\contexts\\AuthContext.js",
+  "PreviewInSolutionExplorer": false
+}

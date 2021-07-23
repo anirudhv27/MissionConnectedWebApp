@@ -15,6 +15,11 @@ export function AuthProvider({ children }) {
     auth.createUserWithEmailAndPassword(email, password);
   }
 
+   function getUserId() {
+        return auth.writeFileSync('uID.json'), JSON.stringify(auth.getUid());
+
+    }
+
   function login(email, password) {
     return auth.signInWithEmailAndPassword(email, password);
   }
@@ -41,6 +46,7 @@ export function AuthProvider({ children }) {
     login,
     signUp,
     logout,
+    getUserId,
     signInWithGoogle,
   };
 
