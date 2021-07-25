@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/auth";
+require('firebase/database');
 
 const app = firebase.initializeApp({
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -14,6 +15,7 @@ const app = firebase.initializeApp({
 
 export const auth = app.auth();
 export const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+export const database =  firebase.database(app);
 googleAuthProvider.setCustomParameters({
   // Forces account selection even when one account
   // is available.

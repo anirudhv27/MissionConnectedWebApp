@@ -1,7 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
-import { auth, googleAuthProvider } from "../firebase";
+import { auth, googleAuthProvider,database } from "../firebase";
+
 
 const AuthContext = React.createContext();
+
 
 export function useAuth() {
   return useContext(AuthContext);
@@ -40,12 +42,26 @@ export function AuthProvider({ children }) {
     }
   }
 
+  function saveUserData(user) {
+    const ref = database.ref();
+    const usersRef = ref.child('users');
+    usersRef.child(user.uid).set({
+      email: user.email,
+      fullname: user.displayName,
+      imgurl: user.photoURL,
+      isAdmin: false,
+      school: "missionsanjosehigh"
+    });
+  }
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if(user != null ) {
         if(user.email.indexOf("@fusdk12.net") != -1){
+          //console.log(user);
           setCurrentUser(user);
           setLoading(false);
+          saveUserData(user);
         } else {
           logout();
           setCurrentUser(null);
