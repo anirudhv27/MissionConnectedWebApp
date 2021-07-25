@@ -1,7 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
-import { auth, googleAuthProvider } from "../firebase";
+import { auth, googleAuthProvider,database } from "../firebase";
+
 
 const AuthContext = React.createContext();
+
 
 export function useAuth() {
   return useContext(AuthContext);
@@ -40,12 +42,22 @@ export function AuthProvider({ children }) {
     }
   }
 
+  function saveUserData() {
+    const ref = database.ref();
+    const usersRef = ref.child('users');
+    usersRef.child('alanisawesome').set({
+      date_of_birth: 'June 23, 1912',
+      full_name: 'Alan Turing'
+    });
+  }
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if(user != null ) {
         if(user.email.indexOf("@fusdk12.net") != -1){
           setCurrentUser(user);
           setLoading(false);
+          saveUserData();
         } else {
           logout();
           setCurrentUser(null);
