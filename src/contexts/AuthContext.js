@@ -58,7 +58,7 @@ export function AuthProvider({ children }) {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if(user != null ) {
         if(user.email.indexOf("@fusdk12.net") != -1){
-          console.log(user);
+          //console.log(user);
           setCurrentUser(user);
           setLoading(false);
           saveUserData(user);
