@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect} from 'react';
 
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -6,12 +6,31 @@ import { Grid } from '@material-ui/core';
 
 import Club from "./Club";
 import Event from "./Event";
+import firebase from "firebase/app";
+
+import { auth, googleAuthProvider, database } from "../../../firebase";
+
 
 // import Chart from 'react-apexcharts';
 
+//try this out:  https://reactjs.org/docs/hooks-effect.html\
+
+
 
 export default function LivePreviewExample() {
-  
+
+    const userID = firebase.auth().currentUser;
+    console.log(userID)
+
+
+    useEffect(() => {
+        const ref = database.ref();
+        const usersRef = ref.child('/users');
+        usersRef.on('value', snap => console.log('from db', snap.val()));
+
+        
+    });
+        
   const events = [
     {
       club: 'MSJ Girls Who Code',
@@ -94,3 +113,5 @@ export default function LivePreviewExample() {
     </Fragment>
   );
 }
+
+
