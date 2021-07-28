@@ -5,12 +5,12 @@
     "\\src\\contexts",
     "\\src\\example-components",
     "\\src\\example-components\\DashboardDefault",
-    "\\src\\example-components\\DashboardDefault\\DashboardDefaultSection2",
+    "\\src\\example-components\\DashboardDefault\\DashboardDefaultSection1",
     "\\src\\example-components\\Menus",
     "\\src\\example-components\\Modals",
     "\\src\\example-pages",
     "\\src\\example-pages\\Login"
   ],
-  "SelectedNode": "\\src\\contexts\\AuthContext.js",
+  "SelectedNode": "\\src\\example-components\\DashboardDefault\\DashboardDefaultSection1\\index.js",
   "PreviewInSolutionExplorer": false
 }
