@@ -19,15 +19,29 @@ export default function LivePreviewExample() {
 
     const userID = firebase.auth().currentUser;
     console.log(userID)
+    const [eventNames, setEventNames] = useState([])
 
+
+    function fetchEventIDs() {
+      const ref = database.ref();
+      const usersRef = ref.child('/users');
+      const user = auth.currentUser.uid
+      const myEventNamesRef = usersRef.child(user).child("events")
+  
+      myEventNamesRef.on('value', (snapshot) => {
+        const eventNames = [];
+        snapshot.forEach(childSnapShot => {
+          const { isGoing, member_status } = childSnapShot.val();
+          eventNames.push(childSnapShot.key)
+        }) 
+        setEventNames(eventNames)
+        console.log(eventNames)
+      })
+    }
 
     useEffect(() => {
-        const ref = database.ref();
-        const usersRef = ref.child('/users');
-        usersRef.on('value', snap => console.log('from db', snap.val()));
-
-        
-    });
+        fetchEventIDs()
+    }, []);
         
   const events = [
     {
