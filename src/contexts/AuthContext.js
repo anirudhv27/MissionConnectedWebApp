@@ -49,14 +49,32 @@ export function AuthProvider({ children }) {
 
   function saveUserData(user) {
     const ref = database.ref();
-    const usersRef = ref.child('users');
-    usersRef.child(user.uid).set({
-      email: user.email,
-      fullname: user.displayName,
-      imgurl: user.photoURL,
-      isAdmin: false,
-      school: "missionsanjosehigh"
+    const usersRef = ref.child('users')
+    const dbuser = usersRef.child(user.uid);
+    const exists = false;
+    
+    
+    dbuser.get().then((snapshot) => {
+      if (snapshot.exists()) {
+        console.log("exists");
+        const exists = true;
+      } else {
+        console.log("No data available");
+      }
+    }).catch((error) => {
+      console.error(error);
     });
+
+
+    if (exists == false){
+      usersRef.child(user.uid).set({
+        email: user.email,
+        fullname: user.displayName,
+        imgurl: user.photoURL,
+        isAdmin: false,
+        school: "missionsanjosehigh"
+      });
+    } 
   }
 
   useEffect(() => {
