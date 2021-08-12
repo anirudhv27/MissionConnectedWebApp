@@ -69,51 +69,7 @@ export default [
     "label": "My Clubs",
     "icon": "SettingsIcon",
     "content": [
-      {
-        "label": "Buttons",
-        "description": "Wide selection of buttons that feature different styles for backgrounds, borders and hover options!",
-        "to": "/Buttons"
-      },
-      {
-        "label": "Dropdowns",
-        "description": "A drop-down list is a graphical control element, similar to a list box, that allows the user to choose one value from a list.",
-        "to": "/Dropdowns"
-      },
-      {
-        "label": "Navigation menus",
-        "description": "Navigation menus are one of the basic building blocks for any web or mobile app.",
-        "to": "/NavigationMenus"
-      },
-      {
-        "label": "Progress Bars",
-        "description": "You can use the progress bars on their own or in combination with other widgets.",
-        "to": "/ProgressBars"
-      },
-      {
-        "label": "Pagination",
-        "description": "Basic and dynamic pagination for use in your next awesome application.",
-        "to": "/Pagination"
-      },
-      {
-        "label": "Scrollable",
-        "description": "Add scrolling areas to any elements with custom scrollbars or default browser ones.",
-        "to": "/Scrollable"
-      },
-      {
-        "label": "Badges",
-        "description": "Badges and labels are used to offer extra small pieces of info for your content.",
-        "to": "/Badges"
-      },
-      {
-        "label": "Icons",
-        "description": "Wide icons selection including from flag icons to FontAwesome and other icons libraries.",
-        "to": "/Icons"
-      },
-      {
-        "label": "Utilities & Helpers",
-        "description": "These are helpers that speed up the dev time for various components and effects.",
-        "to": "/UtilitiesHelpers"
-      }
+ 
     ]
   },
   {
@@ -184,6 +140,50 @@ export default [
         "label": "Controls",
         "description": "Wide selection of forms controls, using a standardised code base, specifically for React.",
         "to": "/FormsControls"
+      },     {
+        "label": "Buttons",
+        "description": "Wide selection of buttons that feature different styles for backgrounds, borders and hover options!",
+        "to": "/Buttons"
+      },
+      {
+        "label": "Dropdowns",
+        "description": "A drop-down list is a graphical control element, similar to a list box, that allows the user to choose one value from a list.",
+        "to": "/Dropdowns"
+      },
+      {
+        "label": "Navigation menus",
+        "description": "Navigation menus are one of the basic building blocks for any web or mobile app.",
+        "to": "/NavigationMenus"
+      },
+      {
+        "label": "Progress Bars",
+        "description": "You can use the progress bars on their own or in combination with other widgets.",
+        "to": "/ProgressBars"
+      },
+      {
+        "label": "Pagination",
+        "description": "Basic and dynamic pagination for use in your next awesome application.",
+        "to": "/Pagination"
+      },
+      {
+        "label": "Scrollable",
+        "description": "Add scrolling areas to any elements with custom scrollbars or default browser ones.",
+        "to": "/Scrollable"
+      },
+      {
+        "label": "Badges",
+        "description": "Badges and labels are used to offer extra small pieces of info for your content.",
+        "to": "/Badges"
+      },
+      {
+        "label": "Icons",
+        "description": "Wide icons selection including from flag icons to FontAwesome and other icons libraries.",
+        "to": "/Icons"
+      },
+      {
+        "label": "Utilities & Helpers",
+        "description": "These are helpers that speed up the dev time for various components and effects.",
+        "to": "/UtilitiesHelpers"
       }
     ]
   }
