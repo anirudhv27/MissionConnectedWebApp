@@ -179,14 +179,7 @@ export default [
         "label": "List Groups",
         "description": "These can be used with other components and elements to create stunning and unique new elements for your UIs.",
         "to": "/ListGroups"
-      }
-    ]
-  },
-
-  {
-    "label": "Forms Elements",
-    "icon": "BarChartIcon",
-    "content": [
+      },
       {
         "label": "Controls",
         "description": "Wide selection of forms controls, using a standardised code base, specifically for React.",
@@ -194,6 +187,7 @@ export default [
       }
     ]
   }
+
 ]`,
       (key, value) => {
         if (key === 'icon') {
