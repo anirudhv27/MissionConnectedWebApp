@@ -117,31 +117,14 @@ export default [
     ]
   },
   {
-    "label": "Publish",
+    "label": "Archive",
     "icon": "ViewModuleIcon",
     "content": [
       {
         "label": "Cards examples 3",
         "description": "Wide selection of cards with multiple styles, borders, actions and hover effects.",
         "to": "/Cards3"
-      }
-    ]
-  },
-  {
-    "label": "Support",
-    "icon": "ErrorIcon",
-    "content": [
-      {
-        "label": "Landing page",
-        "description": "",
-        "to": "/LandingPage"
-      }
-    ]
-  },
-  {
-    "label": "Privacy Policy",
-    "icon": "ReceiptIcon",
-    "content": [
+      },
       {
         "label": "Accordions",
         "description": "Accordions represent collapsable component with extended functionality.",
@@ -166,13 +149,12 @@ export default [
         "label": "Tabs",
         "description": "Tabs are used to split content between multiple sections. Wide variety available.",
         "to": "/Tabs"
-      }
-    ]
-  },
-  {
-    "label": "Version 1.0",
-    "icon": "CodeIcon",
-    "content": [
+      },
+      {
+        "label": "Landing page",
+        "description": "",
+        "to": "/LandingPage"
+      },
       {
         "label": "Tables examples 1",
         "description": "Tables are the backbone of almost all web applications.",
@@ -182,24 +164,7 @@ export default [
         "label": "Tables examples 4",
         "description": "Tables are the backbone of almost all web applications.",
         "to": "/RegularTables4"
-      }
-    ]
-  },
-  {
-    "label": "Forms Elements",
-    "icon": "BarChartIcon",
-    "content": [
-      {
-        "label": "Controls",
-        "description": "Wide selection of forms controls, using a standardised code base, specifically for React.",
-        "to": "/FormsControls"
-      }
-    ]
-  },
-  {
-    "label": "LogOut",
-    "icon": "ChatIcon",
-    "content": [
+      },
       {
         "label": "Apex Charts",
         "description": "Wonderful animated charts built with ApexCharts components.",
@@ -214,6 +179,18 @@ export default [
         "label": "List Groups",
         "description": "These can be used with other components and elements to create stunning and unique new elements for your UIs.",
         "to": "/ListGroups"
+      }
+    ]
+  },
+
+  {
+    "label": "Forms Elements",
+    "icon": "BarChartIcon",
+    "content": [
+      {
+        "label": "Controls",
+        "description": "Wide selection of forms controls, using a standardised code base, specifically for React.",
+        "to": "/FormsControls"
       }
     ]
   }
