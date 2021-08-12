@@ -7,7 +7,7 @@ import { Grid } from '@material-ui/core';
 import Club from "./Club";
 import Event from "./Event";
 import firebase from "firebase/app";
-import { getEvents } from "../../../contexts/AuthContext";
+
 import { auth, googleAuthProvider, database } from "../../../firebase";
 
 
@@ -19,8 +19,9 @@ export default function LivePreviewExample() {
 
     const userID = firebase.auth().currentUser;
     console.log("User ID "+ userID)
+
     var events = [];
-    generateEvents();
+
 
     useEffect(() => {
         console.log("Calling use effects")
@@ -30,9 +31,47 @@ export default function LivePreviewExample() {
         usersRef.on('value', snap => console.log('from db', snap.val()));
         console.log("Current user " + auth.currentUser);
 
+//        console.log("Ppulating events start")
+//        getUserEvents(userID);
+//       console.log("Ppulating events end")
+
     });
 
-    
+
+
+        /*  const events = [
+            {
+              club: 'MSJ Girls Who Code',
+              event: 'Guest speaker event',
+              date: 'February 31, 2021',
+              time: '3:30-4:30',
+              status: 'Going',
+              desc: 'We will have a guest speaker event on Febuary 29th,2021 at 3:30-4:30 with Girls who code',
+        
+              
+            }, 
+            {
+              club: 'MSJ UNICEF',
+              event: 'UNICEF food drive',
+              date: 'March 13, 2021',
+              time: '2:30-5:00',
+                status: 'Going',
+                desc: 'We will have a food drive event on feb 31,2021 at 3:30-4:30',
+        
+        
+            }, 
+            {
+              club: 'MSJ Biotechnology Club',
+              event: 'Weekly meeting',
+              date: 'March 2, 2021',
+              time: '2:30-5:00',
+                status: 'Going',
+                desc: 'We will have a meeting on Febuary 31,2021 at 1:00',
+        
+        
+            },
+          ];*/
+
         const clubs = [
             {
                 name: 'MSJ UNICEF',
@@ -70,9 +109,96 @@ export default function LivePreviewExample() {
             });
     }
 
-    function generateEvents() {
+    function getUserEventKeys(user) {
+
+        console.log("Get user event keys start");
+        var keys = [];
+        const ref = database.ref();
+
+        console.log("data base reference"+ref); 
+
+        // Loop through events in order with the forEach() method.
+        var query = ref.child('/users').child(user.uid).child('events').orderByKey();
+
+        console.log("after query object "); 
+
+        query.once("value")
+            .then(function (snapshot) {
+                snapshot.forEach(function (childSnapshot) {
+                    var key = childSnapshot.key;
+                    console.log("User event key " + key);
+                    keys.push(key);
+                    // childData will be the actual contents of the child
+                    var childData = childSnapshot.val();
+                    console.log("Is going " + childData.isGoing);
+                    console.log("Member status " + childData.member_status);
+                });
+            });
+
+        console.log("Total user event keys " + keys.length); // print total user event keys
+        
+
+        console.log("Get user event keys end");
+        return keys;
+    }
+
+    function getUserEvents(currentUser) {
+
+        console.log("Get user event start");
+        events = [];
+
+        const userEventKeys = getUserEventKeys(currentUser);
+
+        const ref = database.ref();
+
+        // Loop through events in order with the forEach() method.
+        var query = ref.child('/schools').child('missionsanjosehigh').child('events').orderByKey();
+
+        query.once("value")
+            .then(function (snapshot) {
+                snapshot.forEach(function (childSnapshot) {
+                    var key = childSnapshot.key;
+                    console.log(key);
+                    var found = userEventKeys.includes(key);
+
+                    if (found == true) {
+                        console.log("Key found for user event " + key)
+                        // childData will be the actual contents of the child
+                        var childData = childSnapshot.val();
+
+                        console.log("Event name " + childData.event_name)
+
+                        events.push({
+                            club: childData.event_club,
+                            event_name: childData.event_name,
+                            date: childData.event_date,
+                            desc: childData.event_description,
+                            url: childData.event_image_url,
+                            preview: childData.event_preview
+                        });
+                    }
+                });
+
+                console.log("Total user event found " + events.length)
+                
+            });
+
+        console.log("Get user event end");
+    }
+
+    function generateEvents(events) {
         console.log("Calling generate events")
-        events = getEvents();
+
+        const userID = firebase.auth().currentUser;
+        const ref = database.ref();
+        const usersRef = ref.child('/users');
+        usersRef.on('value', snap => console.log('from db', snap.val()));
+        console.log("Current user " + auth.currentUser);
+
+        console.log("Ppulating events start")
+        getUserEvents(userID);
+        console.log("Ppulating events end")
+
         return events.map((event) => {
             return <Event club={event.club} event={event.event_name} date={event.date} time={event.date} status={event.preview} description={event.desc} />;
         });
@@ -84,7 +210,7 @@ export default function LivePreviewExample() {
                 {generateClubs(clubs)}
             </Grid>
             <Grid container spacing={4}>
-                {generateEvents()}
+                {generateEvents(events)}
             </Grid>
         </Fragment>
     );
