@@ -73,7 +73,7 @@ export default [
     ]
   },
   {
-    "label": "Archives",
+    "label": "Archive",
     "icon": "ViewModuleIcon",
     "content": [
       {
