@@ -44,17 +44,6 @@ export default [
     content: JSON.parse(
       `[
   {
-    "label": "Login",
-    "icon": "DashboardTwoToneIcon",
-    "content": [
-      {
-        "label": "Login",
-        "description": "This is a dashboard page example built using this template.",
-        "to": "/LoginButton"
-      }
-    ]
-  },
-  {
     "label": "Dashboards",
     "icon": "DashboardTwoToneIcon",
     "content": [
@@ -66,10 +55,14 @@ export default [
     ]
   },
   {
-    "label": "My Clubs",
+    "label": "Clubs",
     "icon": "SettingsIcon",
     "content": [
- 
+      {
+        "label": "add club",
+        "description": "Add club",
+        "to": "/AddClub"
+      }
     ]
   },
   {

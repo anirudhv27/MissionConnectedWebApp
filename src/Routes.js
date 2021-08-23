@@ -106,6 +106,7 @@ const Routes = () => {
             <Route
               path={[
                 '/DashboardDefault',
+                '/AddClub',
                 '/Buttons',
                 '/Dropdowns',
                 '/NavigationMenus',
@@ -141,6 +142,7 @@ const Routes = () => {
                           path="/DashboardDefault"
                           component={DashboardDefault}
                         />
+                        <PrivateRoute path="/AddClub" component={FormsControls} />
                         <PrivateRoute path="/Buttons" component={Buttons} />
                         <PrivateRoute path="/Dropdowns" component={Dropdowns} />
                         <PrivateRoute
