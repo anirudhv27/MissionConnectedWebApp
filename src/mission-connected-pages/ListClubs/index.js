@@ -10,8 +10,8 @@ export default function FormsControls() {
   return (
     <Fragment>
       <PageTitle
-        titleHeading="Add Clubs"
-        titleDescription="Add New Club"
+        titleHeading="List Clubs"
+        titleDescription="List Clubs"
       />
       <ExampleWrapperSeamless sectionHeading="Basic">
         <FormsControlsBasic />

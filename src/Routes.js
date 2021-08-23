@@ -25,7 +25,7 @@ import RegularTables1 from './example-pages/RegularTables1';
 import RegularTables4 from './example-pages/RegularTables4';
 import FormsControls from './example-pages/FormsControls';
 
-import AddClubs from './mission-connected-pages/AddClubs';
+import ListClubs from './mission-connected-pages/ListClubs';
 import { AuthProvider } from "./contexts/AuthContext";
 
 const Dashboard = lazy(() => import('./example-pages/Login/Dashboard'));
@@ -108,7 +108,7 @@ const Routes = () => {
             <Route
               path={[
                 '/DashboardDefault',
-                '/AddClub',
+                '/ListClubs',
                 '/Buttons',
                 '/Dropdowns',
                 '/NavigationMenus',
@@ -144,7 +144,7 @@ const Routes = () => {
                           path="/DashboardDefault"
                           component={DashboardDefault}
                         />
-                        <PrivateRoute path="/AddClub" component={AddClubs} />
+                        <PrivateRoute path="/ListClubs" component={ListClubs} />
                         <PrivateRoute path="/Buttons" component={Buttons} />
                         <PrivateRoute path="/Dropdowns" component={Dropdowns} />
                         <PrivateRoute

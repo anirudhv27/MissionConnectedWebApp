@@ -59,9 +59,9 @@ export default [
     "icon": "SettingsIcon",
     "content": [
       {
-        "label": "add club",
-        "description": "Add club",
-        "to": "/AddClub"
+        "label": "List Clubs",
+        "description": "List Clubs",
+        "to": "/ListClubs"
       }
     ]
   },
