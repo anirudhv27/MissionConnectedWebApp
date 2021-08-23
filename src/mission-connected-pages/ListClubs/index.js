@@ -1,21 +1,25 @@
 import React, { Fragment } from 'react';
 
 import { PageTitle } from '../../layout-components';
-
+import { Grid } from '@material-ui/core';
 import { ExampleWrapperSeamless } from '../../layout-components';
+import ClubsList from '../../mission-connected-components/clubslist';
 
-import FormsControlsBasic from '../../example-components/FormsControls/FormsControlsBasic';
-import FormsControlsInputGroups from '../../example-components/FormsControls/FormsControlsInputGroups';
-export default function FormsControls() {
+export default function Accordions() {
   return (
     <Fragment>
       <PageTitle
-        titleHeading="List Clubs"
-        titleDescription="List Clubs"
+        titleHeading="Clubs"
+        titleDescription=""
       />
-      <ExampleWrapperSeamless sectionHeading="Basic">
-        <FormsControlsBasic />
-      </ExampleWrapperSeamless>
+      <Grid container spacing={4}>
+        <Grid item xs={12} lg={12}>
+          <ExampleWrapperSeamless sectionHeading="Club Sections">
+            <ClubsList />
+          </ExampleWrapperSeamless>
+        </Grid>
+
+      </Grid>
     </Fragment>
   );
 }
