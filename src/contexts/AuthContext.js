@@ -4,6 +4,7 @@ import { auth, googleAuthProvider,database } from "../firebase";
 
 const AuthContext = React.createContext();
 
+var clubs = [];
 var events = [];
 
 export function getEvents() {
@@ -161,9 +162,30 @@ function getUserEventDetails(currentUser) {
 
     console.log("Get user event end");
 }
-    //looks like the query calls are asynchronous and hence data is not showing up 
-    //i populated data in authcontext.js and the events whewn i log in for first time but when i refresh/anything else does not show
-    //how to populate events before calling dashboard
+
+function getAllClubKeys() {
+        clubs = [];  // clear old clubs
+
+        const ref = database.ref();
+        console.log("All club keys")
+        var query = ref.child('/schools').child('missionsanjosehigh').child('clubs').orderByKey(); //this is most important, how you actually get it
+        query.get("value")
+            .then(function (snapshot) {
+                snapshot.forEach(function (childSnapshot) {
+                    var key = childSnapshot.key;
+                    var childData = childSnapshot.val();
+                    console.log("club " + key);
+                    console.log("Club name " + childData.club_name)
+                });
+
+
+            });
+
+}
+
+
+
+ 
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -172,7 +194,9 @@ function getUserEventDetails(currentUser) {
           //console.log(user);
           setCurrentUser(user);
           setLoading(false);
-          getUserEventDetails(user);  // get the event details for a given user
+            getUserEventDetails(user);  // get the event details for a given user
+
+            getAllClubKeys();
           saveUserData(user);
         } else {
           logout();
