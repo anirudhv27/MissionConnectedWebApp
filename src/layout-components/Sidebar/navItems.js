@@ -44,17 +44,6 @@ export default [
     content: JSON.parse(
       `[
   {
-    "label": "Login",
-    "icon": "DashboardTwoToneIcon",
-    "content": [
-      {
-        "label": "Login",
-        "description": "This is a dashboard page example built using this template.",
-        "to": "/LoginButton"
-      }
-    ]
-  },
-  {
     "label": "Dashboards",
     "icon": "DashboardTwoToneIcon",
     "content": [
@@ -66,10 +55,85 @@ export default [
     ]
   },
   {
-    "label": "My Clubs",
+    "label": "Clubs",
     "icon": "SettingsIcon",
     "content": [
       {
+        "label": "List Clubs",
+        "description": "List Clubs",
+        "to": "/ListClubs"
+      }
+    ]
+  },
+  {
+    "label": "Archive",
+    "icon": "ViewModuleIcon",
+    "content": [
+      {
+        "label": "Cards examples 3",
+        "description": "Wide selection of cards with multiple styles, borders, actions and hover effects.",
+        "to": "/Cards3"
+      },
+      {
+        "label": "Accordions",
+        "description": "Accordions represent collapsable component with extended functionality.",
+        "to": "/Accordions"
+      },
+      {
+        "label": "Modal dialogs",
+        "description": "Wide selection of modal dialogs styles and animations available.",
+        "to": "/Modals"
+      },
+      {
+        "label": "Notifications",
+        "description": "Show beautiful, animated growl like notifications or alerts on your pages screens.",
+        "to": "/Notifications"
+      },
+      {
+        "label": "Popovers",
+        "description": "Add small overlay content, like those found in iOS, to any element for housing secondary information.",
+        "to": "/Popovers"
+      },
+      {
+        "label": "Tabs",
+        "description": "Tabs are used to split content between multiple sections. Wide variety available.",
+        "to": "/Tabs"
+      },
+      {
+        "label": "Landing page",
+        "description": "",
+        "to": "/LandingPage"
+      },
+      {
+        "label": "Tables examples 1",
+        "description": "Tables are the backbone of almost all web applications.",
+        "to": "/RegularTables1"
+      },
+      {
+        "label": "Tables examples 4",
+        "description": "Tables are the backbone of almost all web applications.",
+        "to": "/RegularTables4"
+      },
+      {
+        "label": "Apex Charts",
+        "description": "Wonderful animated charts built with ApexCharts components.",
+        "to": "/ApexCharts"
+      },
+      {
+        "label": "Maps",
+        "description": "Implement in your applications Google or vector maps.",
+        "to": "/Maps"
+      },
+      {
+        "label": "List Groups",
+        "description": "These can be used with other components and elements to create stunning and unique new elements for your UIs.",
+        "to": "/ListGroups"
+      },
+      {
+        "label": "Controls",
+        "description": "Wide selection of forms controls, using a standardised code base, specifically for React.",
+        "to": "/FormsControls"
+      },     {
         "label": "Buttons",
         "description": "Wide selection of buttons that feature different styles for backgrounds, borders and hover options!",
         "to": "/Buttons"
@@ -115,108 +179,8 @@ export default [
         "to": "/UtilitiesHelpers"
       }
     ]
-  },
-  {
-    "label": "Publish",
-    "icon": "ViewModuleIcon",
-    "content": [
-      {
-        "label": "Cards examples 3",
-        "description": "Wide selection of cards with multiple styles, borders, actions and hover effects.",
-        "to": "/Cards3"
-      }
-    ]
-  },
-  {
-    "label": "Support",
-    "icon": "ErrorIcon",
-    "content": [
-      {
-        "label": "Landing page",
-        "description": "",
-        "to": "/LandingPage"
-      }
-    ]
-  },
-  {
-    "label": "Privacy Policy",
-    "icon": "ReceiptIcon",
-    "content": [
-      {
-        "label": "Accordions",
-        "description": "Accordions represent collapsable component with extended functionality.",
-        "to": "/Accordions"
-      },
-      {
-        "label": "Modal dialogs",
-        "description": "Wide selection of modal dialogs styles and animations available.",
-        "to": "/Modals"
-      },
-      {
-        "label": "Notifications",
-        "description": "Show beautiful, animated growl like notifications or alerts on your pages screens.",
-        "to": "/Notifications"
-      },
-      {
-        "label": "Popovers",
-        "description": "Add small overlay content, like those found in iOS, to any element for housing secondary information.",
-        "to": "/Popovers"
-      },
-      {
-        "label": "Tabs",
-        "description": "Tabs are used to split content between multiple sections. Wide variety available.",
-        "to": "/Tabs"
-      }
-    ]
-  },
-  {
-    "label": "Version 1.0",
-    "icon": "CodeIcon",
-    "content": [
-      {
-        "label": "Tables examples 1",
-        "description": "Tables are the backbone of almost all web applications.",
-        "to": "/RegularTables1"
-      },
-      {
-        "label": "Tables examples 4",
-        "description": "Tables are the backbone of almost all web applications.",
-        "to": "/RegularTables4"
-      }
-    ]
-  },
-  {
-    "label": "Forms Elements",
-    "icon": "BarChartIcon",
-    "content": [
-      {
-        "label": "Controls",
-        "description": "Wide selection of forms controls, using a standardised code base, specifically for React.",
-        "to": "/FormsControls"
-      }
-    ]
-  },
-  {
-    "label": "LogOut",
-    "icon": "ChatIcon",
-    "content": [
-      {
-        "label": "Apex Charts",
-        "description": "Wonderful animated charts built with ApexCharts components.",
-        "to": "/ApexCharts"
-      },
-      {
-        "label": "Maps",
-        "description": "Implement in your applications Google or vector maps.",
-        "to": "/Maps"
-      },
-      {
-        "label": "List Groups",
-        "description": "These can be used with other components and elements to create stunning and unique new elements for your UIs.",
-        "to": "/ListGroups"
-      }
-    ]
   }
+
 ]`,
       (key, value) => {
         if (key === 'icon') {
