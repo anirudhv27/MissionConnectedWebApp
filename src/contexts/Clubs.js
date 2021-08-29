@@ -20,13 +20,14 @@ export function DBClubsList({ children }) {
   function generateClubs() {
     if(clubs!=undefined) {
       var keys = Array.from( clubs.keys() );
+      console.log("keys " + keys.length);
       return keys.map(key => (
         <ExpansionPanel
         expanded={expanded === key}
         onChange={handleChange(key)}>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1bh-content"
+          aria-controls="{key}-content"
           id="{key}-header">
           <Typography>{clubs.get(key).get('club_name')}</Typography>
         </ExpansionPanelSummary>
@@ -43,7 +44,7 @@ export function DBClubsList({ children }) {
   useEffect(() => {
     const clubsRef = database.ref('schools/missionsanjosehigh/clubs');
     const dblist = new Map();
-    const unsubscribe = clubsRef.orderByKey().on("child_added", function(snapshot) {
+    const dbloaded = clubsRef.orderByKey().once("child_added", function(snapshot) {
       var item = new Map();
       snapshot.forEach(function(data) {
         item.set("key",snapshot.key);
@@ -51,9 +52,10 @@ export function DBClubsList({ children }) {
         item.set("club_description" ,snapshot.child('club_description').val());
         dblist.set(snapshot.key,item);
       });
+    }).then(function() {
       setClubs(dblist);
-      setLoading(false);
-      return () => unsubscribe();
+      setLoading(true);
+      return () => dbloaded();
     });
   }, []);
 
