@@ -5,10 +5,7 @@ import { Grid } from '@material-ui/core';
 import { ExampleWrapperSeamless } from '../../layout-components';
 import ClubsList from '../../mission-connected-components/clubslist';
 
-import { getClubs } from "../../contexts/Clubs";
-
 export default function Accordions() {
-  const { clubs } = getClubs();
   return (
     <Fragment>
       <PageTitle
