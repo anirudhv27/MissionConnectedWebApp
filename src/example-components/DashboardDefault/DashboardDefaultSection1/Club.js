@@ -1,6 +1,10 @@
 import React from 'react';
 import Popup from 'reactjs-popup';
 import { Grid, Card, IconButton, Menu, MenuItem, Button, Box, Popover } from '@material-ui/core';
+import { EditText, EditTextarea } from 'react-edit-text';
+import 'react-edit-text/dist/index.css';
+
+
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const ITEM_HEIGHT = 20;
@@ -108,7 +112,12 @@ export default function Club(props) {
                   top: '0',
                 }}>
                   <div className="text-black font-size-xxl font-weight-bold" style={{marginBottom: '2vh'}}>Club Description</div>
-                  <div className="description font-size-lg" style={{maxHeight: '30vh', overflow: 'auto'}}>{props.description}</div>
+                  <EditTextarea 
+                    className="description font-size-lg" 
+                    style={{maxHeight: '30vh', overflow: 'auto'}} 
+                    defaultValue = {props.description}
+                    rows={8}
+                  />
                   <div className="text-center" style={{padding: '2vw'}}>
                     <Button className="font-weight-bold" style={{backgroundColor: 'rgb(194, 212, 194)', width: '50%', height: '6vh'}}>
                       <div className="font-size-lg">Join Club</div>
