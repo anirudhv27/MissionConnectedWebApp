@@ -18,7 +18,6 @@ export default function Accordions() {
             <ClubsList />
           </ExampleWrapperSeamless>
         </Grid>
-
       </Grid>
     </Fragment>
   );
