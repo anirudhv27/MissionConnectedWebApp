@@ -44,13 +44,14 @@ export function DBClubsList({ children }) {
   useEffect(() => {
     const clubsRef = database.ref('schools/missionsanjosehigh/clubs');
     const dblist = new Map();
-    const dbloaded = clubsRef.orderByKey().once("child_added", function(snapshot) {
-      var item = new Map();
+
+    const dbloaded = clubsRef.orderByChild('club_name').once("value", function(snapshot) {       
       snapshot.forEach(function(data) {
-        item.set("key",snapshot.key);
-        item.set("club_name" ,snapshot.child('club_name').val());
-        item.set("club_description" ,snapshot.child('club_description').val());
-        dblist.set(snapshot.key,item);
+        var item = new Map();
+        item.set("key",data.key);
+        item.set("club_name" ,data.child('club_name').val());
+        item.set("club_description" ,data.child('club_description').val());
+        dblist.set(data.key,item);
       });
     }).then(function() {
       setClubs(dblist);
