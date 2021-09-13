@@ -108,7 +108,12 @@ export default function Club(props) {
                   top: '0',
                 }}>
                   <div className="text-black font-size-xxl font-weight-bold" style={{marginBottom: '2vh'}}>Club Description</div>
-                  <div className="description font-size-lg" style={{maxHeight: '30vh', overflow: 'auto'}}>{props.description}</div>
+                  <EditTextarea 
+                    className="description font-size-lg" 
+                    style={{maxHeight: '30vh', overflow: 'auto'}} 
+                    defaultValue = {props.description}
+                    rows={8}
+                  />
                   <div className="text-center" style={{padding: '2vw'}}>
                     <Button className="font-weight-bold" style={{backgroundColor: 'rgb(194, 212, 194)', width: '50%', height: '6vh'}}>
                       <div className="font-size-lg">Join Club</div>
