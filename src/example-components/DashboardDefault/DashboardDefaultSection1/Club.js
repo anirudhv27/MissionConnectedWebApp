@@ -33,7 +33,7 @@ export default function Club(props) {
   return (
   <Grid item xs={12} sm={6} lg={3}>
     <Card className="p-3 mb-4" style={{ 
-      backgroundImage: `url(${props.link})`, 
+      // backgroundImage: `url(${props.link})`, 
       backgroundSize: 'cover',
       opacity: '0.5',
       height: '10rem' 
@@ -93,11 +93,11 @@ export default function Club(props) {
                   width: '45%', 
                   float: 'left',
                   }}>
-                  <img src={props.link} style={{width: '100%', borderRadius: '0.5rem'}}/>
+                  {/* <img src={props.link} style={{width: '100%', borderRadius: '0.5rem'}}/> */}
 
                   <div className="header text-black font-size-xxl font-weight-bold"><br></br>{props.name}</div>
-                  <div className="text-black font-size-lg">Members: {props.members} joined</div>
-                  <div className="text-black font-size-lg font-weight-bold"><br></br>{props.meetings}<br></br></div>
+                  {/* <div className="text-black font-size-lg">Members: {props.members} joined</div> */}
+                  {/* <div className="text-black font-size-lg font-weight-bold"><br></br>{props.meetings}<br></br></div> */}
                 </div>
                 <div className="bg-light-gray" style={{
                   width: '50%',
