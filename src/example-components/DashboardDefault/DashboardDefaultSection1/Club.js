@@ -2,6 +2,8 @@ import React from 'react';
 import Popup from 'reactjs-popup';
 import { Grid, Card, IconButton, Menu, MenuItem, Button, Box, Popover } from '@material-ui/core';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { EditText, EditTextarea } from 'react-edit-text';
+import 'react-edit-text/dist/index.css';
 
 const ITEM_HEIGHT = 20;
 
