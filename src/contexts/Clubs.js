@@ -20,8 +20,19 @@ export function DBClubsList({ children }) {
     setExpanded(isExpanded ? panel : false);
   };
 
-  const joinClub = value =>  {
-    alert(currentUser.displayName + " joining " + value);
+  const handleJoinClub = clubId =>  {
+    const usersClubsRef = database.ref().child('users_clubs')
+    usersClubsRef.child(currentUser.uid+clubId).set({
+      role: "Member",
+      userId: currentUser.uid,
+      clubId: clubId
+    }, (error) => {
+      if (error) {
+        alert("Could Not add user to club");
+      } else {
+        alert("Add user to club");
+      }
+    });
   }
 
 
@@ -43,7 +54,7 @@ export function DBClubsList({ children }) {
         <ExpansionPanelDetails>
           <Typography>
           {clubs.get(key).get('club_description')}
-          <Button className="m-2" variant="contained" color="secondary" onClick = {() => joinClub(key)}>
+          <Button className="m-2" variant="contained" color="secondary" onClick = {() => handleJoinClub(key)}>
             Join Club
           </Button>
           </Typography>

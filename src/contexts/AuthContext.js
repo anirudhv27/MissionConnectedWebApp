@@ -72,8 +72,7 @@ export function AuthProvider({ children }) {
         fullname: user.displayName,
         imgurl: user.photoURL,
         isAdmin: false,
-        events: ref.child('/users').child(user.uid).child('events'),
-        school: "missionsanjosehigh", 
+        school: "missionsanjosehigh"
       });
     } 
   }
