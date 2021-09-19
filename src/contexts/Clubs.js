@@ -6,6 +6,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Typography } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 
   
 export function DBClubsList({ children }) {
@@ -17,23 +18,28 @@ export function DBClubsList({ children }) {
     setExpanded(isExpanded ? panel : false);
   };
 
+
   function generateClubs() {
     if(clubs!=undefined) {
       var keys = Array.from( clubs.keys() );
-      console.log("keys " + keys.length);
+      console.log("keys " + keys);
       return keys.map(key => (
         <ExpansionPanel
+        key={key}
         expanded={expanded === key}
         onChange={handleChange(key)}>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="{key}-content"
-          id="{key}-header">
+          aria-controls={key + "-content"}
+          id={key+"-header"}>
           <Typography>{clubs.get(key).get('club_name')}</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
           {clubs.get(key).get('club_description')}
+          <Button className="m-2" variant="contained" color="secondary">
+            Join Club
+          </Button>
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
