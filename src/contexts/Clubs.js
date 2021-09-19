@@ -7,16 +7,22 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Typography } from '@material-ui/core';
 import { Button } from '@material-ui/core';
+import { useAuth } from "./AuthContext";
 
   
 export function DBClubsList({ children }) {
   const [clubs, setClubs] = useState();
   const [loading, setLoading] = useState(true);  
   const [expanded, setExpanded] = React.useState(false);
+  const { currentUser } = useAuth();
 
   const handleChange = panel => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
+
+  const joinClub = value =>  {
+    alert(currentUser.displayName + " joining " + value);
+  }
 
 
   function generateClubs() {
@@ -37,7 +43,7 @@ export function DBClubsList({ children }) {
         <ExpansionPanelDetails>
           <Typography>
           {clubs.get(key).get('club_description')}
-          <Button className="m-2" variant="contained" color="secondary">
+          <Button className="m-2" variant="contained" color="secondary" onClick = {() => joinClub(key)}>
             Join Club
           </Button>
           </Typography>
