@@ -30,7 +30,7 @@ export function DBClubsList({ children }) {
       if (error) {
         alert("Could Not add user to club");
       } else {
-        alert("Add user to club");
+        alert("User added to the club");
       }
     });
   }
@@ -39,7 +39,7 @@ export function DBClubsList({ children }) {
   function generateClubs() {
     if(clubs!=undefined) {
       var keys = Array.from( clubs.keys() );
-      console.log("keys " + keys);
+  
       return keys.map(key => (
         <ExpansionPanel
         key={key}
@@ -52,11 +52,11 @@ export function DBClubsList({ children }) {
           <Typography>{clubs.get(key).get('club_name')}</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-          <Typography>
-          {clubs.get(key).get('club_description')}
-          <Button className="m-2" variant="contained" color="secondary" onClick = {() => handleJoinClub(key)}>
-            Join Club
-          </Button>
+          <Typography>    
+          {clubs.get(key).get('club_description')} {clubs.get('role')}
+          {( clubs.get(key).get('role') == undefined ) ? <Button className="m-2" variant="contained" color="secondary" onClick = {() => handleJoinClub(key)}>
+                      Join Club
+                    </Button>  : "member"}
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -66,14 +66,33 @@ export function DBClubsList({ children }) {
 
   useEffect(() => {
     const clubsRef = database.ref('schools/missionsanjosehigh/clubs');
+    const usersClubsRef = database.ref('users_clubs');
     const dblist = new Map();
+    const userClubsMap = new Map();
 
-    const dbloaded = clubsRef.orderByChild('club_name').once("value", function(snapshot) {       
+    usersClubsRef.orderByChild('userId').equalTo(currentUser.uid).once('value', (snapshot) => {
+      snapshot.forEach(function(data) {
+        //console.log(data.child('userId').val());
+        //console.log(data.child('role').val());
+        var clubId = data.child('clubId').val();
+        userClubsMap.set(clubId,data.child('role').val());
+      });
+    }).then(function() {
+      console.log(userClubsMap);
+    });
+
+    const dbloaded = clubsRef.orderByChild('club_name').once("value", function(snapshot) {    
+      console.log(userClubsMap);   
       snapshot.forEach(function(data) {
         var item = new Map();
-        item.set("key",data.key);
+        var clubId = data.key;
+        var role = userClubsMap.get(clubId);
+        item.set("key",clubId);
         item.set("club_name" ,data.child('club_name').val());
         item.set("club_description" ,data.child('club_description').val());
+        if(typeof(role) !== undefined) {
+          item.set("role", role);
+        }
         dblist.set(data.key,item);
       });
     }).then(function() {
